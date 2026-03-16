@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Partners & Sponsors | 6th Eastern Travel Mart 2026</title>
+    <meta name="description" content="Meet the sponsors, supporters and partners of the 6th Eastern Travel Mart 2026 – Koshi Province, Nepal.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#0381DC',
+                        secondary: '#0381DC',
+                        darkBlue: '#095b8e',
+                        lightBlue: '#e6f2fc',
+                        darkerBlue: '#053c5e',
+                    },
+                    fontFamily: { sans: ['Poppins', 'sans-serif'] }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        .nav-link.active { color: #0381DC; border-bottom-color: #0381DC; }
+        .box-partner { transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
+        .box-partner:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 25px -5px rgba(3, 129, 220, 0.15), 0 10px 10px -5px rgba(3, 129, 220, 0.1);
+            border-color: #0381DC;
+        }
+        .mobile-overlay { transition: opacity 0.3s ease, visibility 0.3s ease; }
+        .mobile-overlay.hidden { opacity: 0; visibility: hidden; }
+        .mobile-overlay.show { opacity: 1; visibility: visible; }
+        .mobile-panel { transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
+        .mobile-overlay.hidden .mobile-panel { transform: translateX(100%); }
+        .mobile-overlay.show .mobile-panel { transform: translateX(0); }
+    </style>
+</head>
+<body class="font-sans text-gray-800 bg-gray-50 flex flex-col min-h-screen">
+
+    <!-- Navigation -->
+    <nav id="navbar" class="bg-white shadow-md fixed w-full top-0 z-50 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16 sm:h-20">
+                <div class="flex items-center">
+                    <a href="index.html" class="flex-shrink-0 flex items-center gap-3">
+                        <img class="h-10 sm:h-12 w-auto" src="images/logo.svg" alt="ETM Logo" onerror="this.onerror=null; this.src='https://placehold.co/150x50/0381DC/FFF?text=ETM+Logo';">
+                    </a>
+                </div>
+                <div class="hidden lg:flex items-center space-x-6">
+                    <a href="index.html" class="nav-link text-gray-600 hover:text-primary font-medium transition-colors border-b-2 border-transparent h-full flex items-center">Home</a>
+                    <a href="about.html" class="nav-link text-gray-600 hover:text-primary font-medium transition-colors border-b-2 border-transparent h-full flex items-center">About</a>
+                    <a href="partners.html" class="nav-link active text-primary hover:text-primary font-medium transition-colors border-b-2 border-primary h-full flex items-center">Partners</a>
+                    <a href="program.html" class="nav-link text-gray-600 hover:text-primary font-medium transition-colors border-b-2 border-transparent h-full flex items-center">Program</a>
+                    <div class="flex gap-2 ml-4">
+                        <a href="register-buyer.html" class="bg-primary hover:bg-darkBlue text-white px-5 py-2.5 rounded-full font-medium transition-colors text-sm shadow-md">Register</a>
+                    </div>
+                </div>
+                <div class="flex items-center lg:hidden">
+                    <button type="button" onclick="toggleMobileMenu()" class="text-gray-600 hover:text-primary focus:outline-none p-2" aria-label="Open menu">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Overlay -->
+        <div id="mobile-menu" class="mobile-overlay hidden fixed inset-0 z-50 lg:hidden">
+            <div class="absolute inset-0 bg-black/50" onclick="toggleMobileMenu()"></div>
+            <div class="mobile-panel absolute right-0 top-0 h-full w-[280px] sm:w-[320px] bg-white shadow-2xl">
+                <div class="flex items-center justify-between p-4 border-b border-gray-100">
+                    <img class="h-9 w-auto" src="images/logo.svg" alt="ETM Logo" onerror="this.onerror=null; this.src='https://placehold.co/120x40/0381DC/FFF?text=ETM';">
+                    <button onclick="toggleMobileMenu()" class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-gray-100 transition-colors" aria-label="Close menu">
+                        <i class="fas fa-times text-xl text-gray-600"></i>
+                    </button>
+                </div>
+                <div class="p-4 space-y-1">
+                    <a href="index.html" class="block px-4 py-3.5 text-base font-medium text-gray-800 hover:text-primary hover:bg-lightBlue rounded-xl transition-colors">Home</a>
+                    <a href="about.html" class="block px-4 py-3.5 text-base font-medium text-gray-800 hover:text-primary hover:bg-lightBlue rounded-xl transition-colors">About</a>
+                    <a href="partners.html" class="block px-4 py-3.5 text-base font-semibold text-primary bg-lightBlue rounded-xl">Partners</a>
+                    <a href="program.html" class="block px-4 py-3.5 text-base font-medium text-gray-800 hover:text-primary hover:bg-lightBlue rounded-xl transition-colors">Program</a>
+                </div>
+                <div class="p-4 border-t border-gray-100 space-y-3">
+                    <a href="register-seller.html" class="block text-center bg-darkBlue text-white py-3 rounded-xl font-semibold text-sm hover:bg-primary transition-colors">Become Exhibitor</a>
+                    <a href="register-buyer.html" class="block text-center bg-primary text-white py-3 rounded-xl font-semibold text-sm hover:bg-darkBlue transition-colors">Register as Buyer</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="flex-grow pt-16 sm:pt-20">
+
+        <!-- Page Header -->
+        <section class="bg-gradient-to-br from-darkerBlue via-darkBlue to-primary pt-12 sm:pt-16 pb-16 sm:pb-20 relative overflow-hidden">
+            <div class="absolute inset-0 opacity-10">
+                <div class="absolute top-10 left-10 w-64 h-64 rounded-full bg-white blur-3xl"></div>
+                <div class="absolute bottom-0 right-10 w-96 h-96 rounded-full bg-blue-300 blur-3xl"></div>
+            </div>
+            <div class="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <div class="inline-flex items-center gap-2 bg-white/15 border border-white/20 text-white text-xs sm:text-sm font-semibold px-4 py-2 rounded-full mb-4 sm:mb-5 backdrop-blur-sm">
+                    <i class="fas fa-handshake text-blue-200"></i>
+                    Our Partners
+                </div>
+                <h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white mb-4 leading-tight">
+                    Sponsors & <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-300 to-white">Supporters</span>
+                </h1>
+                <p class="text-blue-100 text-sm sm:text-base max-w-2xl mx-auto">
+                    The event is supported by tourism authorities, government bodies, and private sector partners.
+                </p>
+            </div>
+            <div class="absolute bottom-0 w-full overflow-hidden leading-none z-0">
+                <svg class="relative block w-full h-8 sm:h-12 md:h-20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                    <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V120H0V95.8C59.71,118.08,130.83,123.63,200.27,105.2,243.6,93.84,283.47,73.5,321.39,56.44Z" fill="#053c5e"></path>
+                </svg>
+            </div>
+        </section>
+
+        <!-- PARTNERS SECTION -->
+        <section class="py-12 sm:py-16 lg:py-24 bg-darkerBlue">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center mb-10 sm:mb-16">
+                <!-- Sponsor Categories -->
+                <div class="flex flex-wrap justify-center gap-2 sm:gap-3 mb-8 sm:mb-10 text-xs sm:text-sm font-semibold text-white">
+                    <span class="bg-white/10 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full border border-white/20">Title Sponsor</span>
+                    <span class="bg-white/10 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full border border-white/20">Co-Sponsors</span>
+                    <span class="bg-white/10 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full border border-white/20">Destination Partners</span>
+                    <span class="bg-white/10 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full border border-white/20">Hospitality Partners</span>
+                    <span class="bg-white/10 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full border border-white/20">Travel Partners</span>
+                    <span class="bg-white/10 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full border border-white/20">Media Partners</span>
+                </div>
+            </div>
+
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+
+                    <!-- Partner Box 1 -->
+                    <div class="box-partner bg-white rounded-xl p-6 sm:p-8 flex flex-col items-center justify-center text-center h-48 sm:h-64 border-b-4 border-transparent">
+                        <div class="w-16 sm:w-20 h-16 sm:h-20 rounded-full bg-lightBlue text-primary flex items-center justify-center text-3xl sm:text-4xl mb-3 sm:mb-4">
+                            <i class="fas fa-mountain"></i>
+                        </div>
+                        <h3 class="font-bold text-gray-900 text-base sm:text-lg">Nepal Tourism Board</h3>
+                        <p class="text-xs sm:text-sm text-gray-500 font-medium mt-1">NTB</p>
+                    </div>
+
+                    <!-- Partner Box 2 -->
+                    <div class="box-partner bg-white rounded-xl p-6 sm:p-8 flex flex-col items-center justify-center text-center h-48 sm:h-64 border-b-4 border-transparent">
+                        <div class="w-16 sm:w-20 h-16 sm:h-20 rounded-full bg-primary text-white flex items-center justify-center text-3xl sm:text-4xl mb-3 sm:mb-4 shadow-md">
+                            <i class="fas fa-calendar-check"></i>
+                        </div>
+                        <h3 class="font-bold text-gray-900 text-base sm:text-lg leading-tight">Koshi Province Tourism Year 2082</h3>
+                    </div>
+
+                    <!-- Partner Box 3 -->
+                    <div class="box-partner bg-white rounded-xl p-6 sm:p-8 flex flex-col items-center justify-center text-center h-48 sm:h-64 border-b-4 border-transparent">
+                        <div class="w-16 sm:w-20 h-16 sm:h-20 rounded-full bg-lightBlue text-primary flex items-center justify-center text-3xl sm:text-4xl mb-3 sm:mb-4">
+                            <i class="fas fa-city"></i>
+                        </div>
+                        <h3 class="font-bold text-gray-900 text-base sm:text-lg leading-tight">Itahari Sub-Metropolitan City</h3>
+                    </div>
+
+                    <!-- Partner Box 4 -->
+                    <div class="box-partner bg-white rounded-xl p-6 sm:p-8 flex flex-col items-center justify-center text-center h-48 sm:h-64 border-b-4 border-transparent">
+                        <div class="w-16 sm:w-20 h-16 sm:h-20 rounded-full bg-lightBlue text-primary flex items-center justify-center text-3xl sm:text-4xl mb-3 sm:mb-4">
+                            <i class="fas fa-plane-departure"></i>
+                        </div>
+                        <h3 class="font-bold text-gray-900 text-base sm:text-lg">NATTA Koshi</h3>
+                        <p class="text-xs text-gray-500 mt-2">Nepal Association of Tour & Travel Agents</p>
+                    </div>
+
+                    <!-- Partner Box 5 -->
+                    <div class="box-partner bg-white rounded-xl p-6 sm:p-8 flex flex-col items-center justify-center text-center h-48 sm:h-64 border-b-4 border-transparent">
+                        <div class="w-16 sm:w-20 h-16 sm:h-20 rounded-full bg-lightBlue text-primary flex items-center justify-center text-3xl sm:text-4xl mb-3 sm:mb-4">
+                            <i class="fas fa-concierge-bell"></i>
+                        </div>
+                        <h3 class="font-bold text-gray-900 text-base sm:text-lg">Hotel Association Nepal</h3>
+                        <p class="text-xs sm:text-sm text-gray-500 font-medium mt-1">HAN</p>
+                    </div>
+
+                    <!-- Partner Box 6 -->
+                    <div class="box-partner bg-white rounded-xl p-6 sm:p-8 flex flex-col items-center justify-center text-center h-48 sm:h-64 border-b-4 border-transparent">
+                        <div class="w-16 sm:w-20 h-16 sm:h-20 rounded-full bg-lightBlue text-primary flex items-center justify-center text-3xl sm:text-4xl mb-3 sm:mb-4">
+                            <i class="fas fa-map-marked-alt"></i>
+                        </div>
+                        <h3 class="font-bold text-gray-900 text-base sm:text-lg leading-tight">Provincial Tourism Authority</h3>
+                        <p class="text-xs sm:text-sm text-gray-500 mt-1">Koshi Province</p>
+                    </div>
+
+                    <!-- Partner Box 7 -->
+                    <div class="box-partner bg-white rounded-xl p-6 sm:p-8 flex flex-col items-center justify-center text-center h-48 sm:h-64 border-b-4 border-transparent">
+                        <div class="w-16 sm:w-20 h-16 sm:h-20 rounded-full bg-lightBlue text-primary flex items-center justify-center text-3xl sm:text-4xl mb-3 sm:mb-4">
+                            <i class="fas fa-users-cog"></i>
+                        </div>
+                        <h3 class="font-bold text-gray-900 text-base sm:text-lg">H.T.T.A.S Sunsari</h3>
+                        <p class="text-xs text-gray-500 mt-2">Hotel & Tourism Entrepreneurs Association</p>
+                    </div>
+
+                    <!-- Partner Box 8 -->
+                    <div class="box-partner bg-white rounded-xl p-6 sm:p-8 flex flex-col items-center justify-center text-center h-48 sm:h-64 border-b-4 border-transparent">
+                        <div class="w-16 sm:w-20 h-16 sm:h-20 rounded-full bg-lightBlue text-primary flex items-center justify-center text-3xl sm:text-4xl mb-3 sm:mb-4">
+                            <i class="fas fa-car-side"></i>
+                        </div>
+                        <h3 class="font-bold text-gray-900 text-base sm:text-lg">BATA</h3>
+                        <p class="text-xs sm:text-sm text-gray-500 mt-1">Biratnagar Automobile Traders Association</p>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Become a Partner CTA -->
+            <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 mt-12 sm:mt-16 text-center">
+                <div class="bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl p-6 sm:p-10">
+                    <h3 class="text-xl sm:text-2xl font-bold text-white mb-3 sm:mb-4">Become a Partner</h3>
+                    <p class="text-blue-100 text-sm sm:text-base mb-6 max-w-lg mx-auto">Interested in sponsoring or partnering with the 6th Eastern Travel Mart? Get in touch with our team.</p>
+                    <a href="mailto:easterntravelmart@gmail.com" class="inline-flex items-center gap-2 bg-white text-darkBlue px-6 sm:px-8 py-3 rounded-full font-bold text-sm sm:text-base hover:bg-gray-100 transition-colors shadow-lg">
+                        <i class="fas fa-envelope"></i> Contact Us
+                    </a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-darkerBlue text-white border-t-4 border-primary mt-auto">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-16">
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
+                <div class="sm:col-span-2">
+                    <img src="images/logo.svg" alt="ETM Logo" class="h-12 sm:h-14 w-auto mb-4 sm:mb-6 brightness-0 invert" onerror="this.onerror=null; this.src='https://placehold.co/150x50/0381DC/FFF?text=ETM+Logo';">
+                    <p class="text-blue-100 mb-4 sm:mb-6 max-w-sm leading-relaxed text-xs sm:text-sm">
+                        Promoting the extraordinary tourism potential of Eastern Nepal and Koshi Province. Join us in shaping the future of regional tourism.
+                    </p>
+                    <div class="flex gap-3 sm:gap-4">
+                        <a href="#" class="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-primary transition-colors text-sm"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-primary transition-colors text-sm"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-primary transition-colors text-sm"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-base sm:text-lg font-bold mb-4 sm:mb-6 text-white border-b-2 border-primary inline-block pb-1">Quick Links</h3>
+                    <ul class="space-y-2.5 sm:space-y-3">
+                        <li><a href="index.html" class="text-blue-200 hover:text-white transition-colors text-xs sm:text-sm flex items-center gap-2"><i class="fas fa-chevron-right text-xs text-primary"></i> Home</a></li>
+                        <li><a href="about.html" class="text-blue-200 hover:text-white transition-colors text-xs sm:text-sm flex items-center gap-2"><i class="fas fa-chevron-right text-xs text-primary"></i> About Us</a></li>
+                        <li><a href="partners.html" class="text-blue-200 hover:text-white transition-colors text-xs sm:text-sm flex items-center gap-2"><i class="fas fa-chevron-right text-xs text-primary"></i> Partners</a></li>
+                        <li><a href="program.html" class="text-blue-200 hover:text-white transition-colors text-xs sm:text-sm flex items-center gap-2"><i class="fas fa-chevron-right text-xs text-primary"></i> Program</a></li>
+                        <li><a href="register-buyer.html" class="text-blue-200 hover:text-white transition-colors text-xs sm:text-sm flex items-center gap-2"><i class="fas fa-chevron-right text-xs text-primary"></i> Register</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-base sm:text-lg font-bold mb-4 sm:mb-6 text-white border-b-2 border-primary inline-block pb-1">Contact Us</h3>
+                    <ul class="space-y-3 sm:space-y-4 text-xs sm:text-sm text-blue-200">
+                        <li class="flex items-start gap-3">
+                            <i class="fas fa-map-marker-alt mt-1 text-primary"></i>
+                            <span>Soaltee Westend Itahari,<br>Koshi Province, Nepal</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="fas fa-envelope text-primary"></i>
+                            <a href="mailto:easterntravelmart@gmail.com" class="hover:text-white break-all text-[12px] sm:text-[13px]">easterntravelmart@gmail.com</a>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="fas fa-phone-alt text-primary"></i>
+                            <a href="tel:+9779700072197" class="hover:text-white">+977 9700072197</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <hr class="border-blue-800/50 my-8 sm:my-10">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-3 sm:gap-4 text-xs sm:text-sm text-blue-200">
+                <p>&copy; <script>document.write(new Date().getFullYear())</script> All Right Reserved to - ETM</p>
+                <div class="text-center md:text-right">
+                    <p>Powered By <a href="https://kafals.com.np" target="_blank" rel="noopener noreferrer" class="text-white font-semibold hover:text-primary transition-colors mx-1">Kafals</a> <span class="text-blue-800 mx-2">|</span> Registration Management By <a href="https://flowvent.io" target="_blank" rel="noopener noreferrer" class="text-white font-semibold hover:text-primary transition-colors mx-1">Flowvent</a></p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            if (menu.classList.contains('hidden')) {
+                menu.classList.remove('hidden');
+                requestAnimationFrame(() => menu.classList.add('show'));
+                document.body.style.overflow = 'hidden';
+            } else {
+                menu.classList.remove('show');
+                menu.classList.add('hidden');
+                document.body.style.overflow = '';
+            }
+        }
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('navbar');
+            if (window.scrollY > 20) { nav.classList.add('shadow-lg'); nav.classList.remove('shadow-md'); }
+            else { nav.classList.add('shadow-md'); nav.classList.remove('shadow-lg'); }
+        });
+    </script>
+</body>
+</html>

@@ -1,786 +1,423 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Exhibitor / Seller Registration | 6th Eastern Travel Mart 2026</title>
-    <meta name="description" content="Register as an Exhibitor/Seller at the 6th Eastern Travel Mart 2026 – Koshi Province, Nepal.">
+    <title>Exhibitor Registration | 6th Eastern Travel Mart 2026</title>
+    <meta name="description" content="Register as an Exhibitor at the 6th Eastern Travel Mart 2026">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
     <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        primary: '#0381DC',
-                        darkBlue: '#095b8e',
-                        lightBlue: '#e6f2fc',
-                        darkerBlue: '#053c5e',
-                    },
-                    fontFamily: { sans: ['Poppins', 'sans-serif'] }
-                }
-            }
-        }
-    </script>
 
     <style>
+        * { font-family: 'Inter', sans-serif; }
+
+        body {
+            background: linear-gradient(135deg, #f5f7fa 0%, #e9ecef 100%);
+            min-height: 100vh;
+        }
+
         .form-input {
             width: 100%;
-            padding: 14px 16px 14px 44px;
-            border: 2px solid #e5e7eb;
-            border-radius: 12px;
-            font-family: 'Poppins', sans-serif;
+            padding: 12px 16px;
+            border: 1px solid #d1d5db;
+            border-radius: 6px;
             font-size: 14px;
             color: #1f2937;
             background: #fff;
             transition: border-color 0.2s, box-shadow 0.2s;
-            outline: none;
         }
+
         .form-input:focus {
-            border-color: #0381DC;
-            box-shadow: 0 0 0 4px rgba(3,129,220,0.12);
+            outline: none;
+            border-color: #095b8e;
+            box-shadow: 0 0 0 3px rgba(9, 91, 142, 0.1);
         }
+
         .form-input::placeholder { color: #9ca3af; }
-        .form-icon {
-            position: absolute;
-            left: 14px;
-            top: 50%;
-            transform: translateY(-50%);
-            color: #9ca3af;
-            font-size: 15px;
-            pointer-events: none;
-            transition: color 0.2s;
-        }
-        .form-group { position: relative; }
-        .form-group:focus-within .form-icon { color: #0381DC; }
+
         .form-label {
             display: block;
             font-size: 13px;
             font-weight: 600;
             color: #374151;
             margin-bottom: 6px;
-        }
-        .form-label span { color: #ef4444; }
-
-        select.form-input { appearance: none; cursor: pointer; }
-        textarea.form-input { padding-left: 16px; min-height: 110px; resize: vertical; }
-
-        .page-section { display: none; }
-        .page-section.active { display: block; }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to   { opacity: 1; transform: translateY(0); }
-        }
-        .page-section.active { animation: fadeIn 0.3s ease forwards; }
-
-        .booth-card input[type=radio]:checked ~ .booth-inner {
-            border-color: #0381DC;
-            background: #e6f2fc;
-        }
-        .booth-card { cursor: pointer; }
-
-        .success-animation { animation: popIn 0.5s cubic-bezier(0.34,1.56,0.64,1) forwards; }
-        @keyframes popIn {
-            0%   { transform: scale(0); opacity: 0; }
-            100% { transform: scale(1); opacity: 1; }
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
 
-        /* Seller accent = darker blue scheme */
-        .section-header { background: linear-gradient(135deg, #053c5e, #095b8e); }
+        .required { color: #dc2626; }
+
+        .page-header {
+            background: linear-gradient(135deg, #095b8e 0%, #0381DC 100%);
+            padding: 60px 20px;
+            color: white;
+            text-align: center;
+        }
+
+        .page-header h1 {
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .page-header p {
+            font-size: 15px;
+            opacity: 0.9;
+        }
+
+        .form-card {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+            padding: 40px;
+            margin: -30px 20px 40px;
+        }
+
+        .form-section {
+            margin-bottom: 32px;
+        }
+
+        .section-title {
+            font-size: 14px;
+            font-weight: 700;
+            color: #095b8e;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 20px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid #e5e7eb;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        @media (max-width: 640px) {
+            .form-row { grid-template-columns: 1fr; }
+            .form-card { padding: 24px; }
+        }
+
+        .form-actions {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin-top: 32px;
+            padding-top: 24px;
+            border-top: 1px solid #e5e7eb;
+        }
+
+        @media (max-width: 640px) {
+            .form-actions { grid-template-columns: 1fr; }
+        }
+
+        .btn {
+            padding: 12px 24px;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.2s;
+            border: none;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .btn-submit {
+            background: #095b8e;
+            color: white;
+        }
+
+        .btn-submit:hover {
+            background: #053c5e;
+        }
+
+        .btn-secondary {
+            background: #f3f4f6;
+            color: #374151;
+            border: 1px solid #d1d5db;
+        }
+
+        .btn-secondary:hover {
+            background: #e5e7eb;
+        }
+
+        .success-message {
+            display: none;
+            background: #f0fdf4;
+            border: 1px solid #bbf7d0;
+            border-radius: 6px;
+            padding: 20px;
+            margin-bottom: 20px;
+            color: #166534;
+        }
+
+        .success-message.show {
+            display: block;
+            animation: slideDown 0.3s ease;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        textarea.form-input {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .terms-checkbox {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            font-size: 13px;
+            color: #6b7280;
+            margin-top: 20px;
+        }
+
+        .terms-checkbox input {
+            margin-top: 4px;
+            cursor: pointer;
+            width: 16px;
+            height: 16px;
+            accent-color: #095b8e;
+        }
+
+        .terms-checkbox a {
+            color: #095b8e;
+            text-decoration: none;
+        }
+
+        .terms-checkbox a:hover {
+            text-decoration: underline;
+        }
     </style>
 </head>
-<body class="font-sans bg-gray-50 min-h-screen">
-
-    <!-- Navbar -->
-    <nav class="bg-white shadow-md fixed w-full top-0 z-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between h-18 py-3 items-center">
-                <a href="index.html" class="flex items-center gap-3">
-                    <img class="h-11 w-auto" src="images/logo.svg" alt="ETM Logo"
-                         onerror="this.onerror=null;this.src='https://placehold.co/140x44/0381DC/FFF?text=ETM+Logo';">
+<body>
+    <!-- Navigation -->
+    <nav class="bg-white border-b border-gray-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+            <div class="flex justify-between items-center">
+                <a href="index.html" class="flex items-center gap-2">
+                    <img class="h-10 w-auto" src="images/logo.svg" alt="ETM Logo"
+                         onerror="this.src='https://via.placeholder.com/120x40/0381DC/FFF?text=ETM'">
                 </a>
-                <a href="index.html" class="inline-flex items-center gap-2 text-sm font-semibold text-primary hover:text-darkBlue transition-colors">
-                    <i class="fas fa-arrow-left"></i> Back to Home
+                <a href="register-buyer.html" class="text-sm font-medium text-gray-600 hover:text-primary transition">
+                    Register as Buyer →
                 </a>
             </div>
         </div>
     </nav>
 
-    <!-- Page Header — Darker accent for Seller -->
-    <div class="bg-gradient-to-br from-darkerBlue via-darkBlue to-darkerBlue pt-28 pb-16 relative overflow-hidden">
-        <div class="absolute inset-0 opacity-10">
-            <div class="absolute top-10 right-10 w-80 h-80 rounded-full bg-blue-400 blur-3xl"></div>
-            <div class="absolute bottom-0 left-10 w-64 h-64 rounded-full bg-white blur-3xl"></div>
-        </div>
-        <!-- Decorative grid pattern -->
-        <div class="absolute inset-0 opacity-5"
-             style="background-image: radial-gradient(circle, #fff 1px, transparent 1px); background-size: 30px 30px;"></div>
-        <div class="relative z-10 max-w-3xl mx-auto px-4 text-center">
-            <div class="inline-flex items-center gap-2 bg-white/15 border border-white/20 text-white text-sm font-semibold px-4 py-2 rounded-full mb-5 backdrop-blur-sm">
-                <i class="fas fa-store text-blue-200"></i>
-                Exhibitor / Seller Registration
-            </div>
-            <h1 class="text-3xl md:text-4xl font-extrabold text-white mb-4 leading-tight">
-                Showcase Your Brand at<br>
-                <span class="text-blue-300">6th Eastern Travel Mart 2026</span>
-            </h1>
-            <p class="text-blue-100 text-base max-w-xl mx-auto">
-                March 28–30, 2026 &nbsp;·&nbsp; Soaltee Westend, Itahari, Koshi Province
-            </p>
-        </div>
+    <!-- Header -->
+    <div class="page-header">
+        <h1>Exhibitor Registration</h1>
+        <p>Join as an Exhibitor at the 6th Eastern Travel Mart 2026 · March 28–30, 2026</p>
     </div>
 
-    <!-- Form Container -->
-    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 -mt-6 pb-20">
+    <!-- Main Container -->
+    <div class="max-w-2xl mx-auto px-4 pb-20">
 
-        <!-- Step Indicator -->
-        <div class="bg-white rounded-2xl shadow-lg p-6 mb-6 border border-gray-100">
-            <div class="flex items-center justify-between relative">
-                <div class="absolute top-5 left-0 right-0 h-0.5 bg-gray-200 z-0 mx-10">
-                    <div id="step-line" class="h-full bg-darkBlue transition-all duration-500" style="width:0%"></div>
-                </div>
+        <div class="form-card">
 
-                <div class="flex flex-col items-center gap-2 z-10">
-                    <div class="w-10 h-10 rounded-full bg-darkBlue text-white flex items-center justify-center font-bold text-sm shadow-md" id="s1-circle"><span>1</span></div>
-                    <span class="text-xs font-semibold text-darkBlue hidden sm:block">Contact Info</span>
-                </div>
-                <div class="flex flex-col items-center gap-2 z-10">
-                    <div class="w-10 h-10 rounded-full bg-gray-200 text-gray-500 flex items-center justify-center font-bold text-sm" id="s2-circle"><span>2</span></div>
-                    <span class="text-xs font-semibold text-gray-400 hidden sm:block" id="s2-label">Business Info</span>
-                </div>
-                <div class="flex flex-col items-center gap-2 z-10">
-                    <div class="w-10 h-10 rounded-full bg-gray-200 text-gray-500 flex items-center justify-center font-bold text-sm" id="s3-circle"><span>3</span></div>
-                    <span class="text-xs font-semibold text-gray-400 hidden sm:block" id="s3-label">Booth & Needs</span>
-                </div>
-                <div class="flex flex-col items-center gap-2 z-10">
-                    <div class="w-10 h-10 rounded-full bg-gray-200 text-gray-500 flex items-center justify-center font-bold text-sm" id="s4-circle"><span>4</span></div>
-                    <span class="text-xs font-semibold text-gray-400 hidden sm:block" id="s4-label">Confirm</span>
+            <!-- Success Message -->
+            <div id="successMessage" class="success-message">
+                <div class="flex items-center gap-3">
+                    <i class="fas fa-check-circle text-xl"></i>
+                    <div>
+                        <strong>Registration Submitted Successfully!</strong>
+                        <p>Check your email for confirmation details.</p>
+                    </div>
                 </div>
             </div>
-        </div>
 
-        <!-- FORM CARD -->
-        <div class="bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden">
+            <!-- Registration Form -->
+            <form id="registrationForm" onsubmit="handleSubmit(event)">
 
-            <!-- Step 1: Contact Person -->
-            <div class="page-section active" id="section-1">
-                <div class="section-header px-8 py-5 border-b border-blue-900/30">
-                    <h2 class="text-xl font-bold text-white flex items-center gap-3">
-                        <i class="fas fa-user-tie"></i> Contact Person Details
-                    </h2>
-                    <p class="text-sm text-blue-200 mt-1">Primary contact for your exhibition</p>
+                <!-- Contact Person Details -->
+                <div class="form-section">
+                    <div class="section-title">
+                        <i class="fas fa-user-tie mr-2" style="color: #095b8e;"></i> Contact Person Details
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="form-label">First Name <span class="required">*</span></label>
+                            <input type="text" class="form-input" name="firstName" placeholder="John" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Last Name <span class="required">*</span></label>
+                            <input type="text" class="form-input" name="lastName" placeholder="Doe" required>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="form-label">Email Address <span class="required">*</span></label>
+                            <input type="email" class="form-input" name="email" placeholder="john@company.com" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Phone Number <span class="required">*</span></label>
+                            <input type="tel" class="form-input" name="phone" placeholder="+977 98XXXXXXXX" required>
+                        </div>
+                    </div>
                 </div>
-                <div class="p-8 space-y-5">
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                        <div>
-                            <label class="form-label">First Name <span>*</span></label>
-                            <div class="form-group">
-                                <i class="fas fa-user form-icon"></i>
-                                <input type="text" class="form-input" placeholder="Sita" id="fname" required>
-                            </div>
-                        </div>
-                        <div>
-                            <label class="form-label">Last Name <span>*</span></label>
-                            <div class="form-group">
-                                <i class="fas fa-user form-icon"></i>
-                                <input type="text" class="form-input" placeholder="Karki" id="lname" required>
-                            </div>
-                        </div>
+
+                <!-- Organization Information -->
+                <div class="form-section">
+                    <div class="section-title">
+                        <i class="fas fa-building mr-2" style="color: #095b8e;"></i> Organization Information
                     </div>
 
-                    <div>
-                        <label class="form-label">Official Email Address <span>*</span></label>
+                    <div class="form-group">
+                        <label class="form-label">Company / Brand Name <span class="required">*</span></label>
+                        <input type="text" class="form-input" name="company" placeholder="Your Company Name" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Business Type <span class="required">*</span></label>
+                        <select class="form-input" name="businessType" required>
+                            <option value="">Select business type</option>
+                            <optgroup label="Accommodation">
+                                <option>Hotel (3-Star)</option>
+                                <option>Hotel (4-Star)</option>
+                                <option>Hotel (5-Star)</option>
+                                <option>Resort</option>
+                                <option>Boutique Hotel / Lodge</option>
+                                <option>Homestay / Guesthouse</option>
+                            </optgroup>
+                            <optgroup label="Travel & Tours">
+                                <option>Tour Operator</option>
+                                <option>Travel Agency</option>
+                                <option>Adventure Tourism Company</option>
+                            </optgroup>
+                            <optgroup label="Transport & Aviation">
+                                <option>Airline</option>
+                                <option>Helicopter Service</option>
+                                <option>Ground Transport</option>
+                            </optgroup>
+                            <optgroup label="Destination & Authority">
+                                <option>Tourism Board / Authority</option>
+                                <option>Provincial Government</option>
+                                <option>Municipality</option>
+                            </optgroup>
+                            <optgroup label="Others">
+                                <option>Spa & Wellness</option>
+                                <option>Restaurant / Food & Beverage</option>
+                                <option>Technology / Travel Tech</option>
+                                <option>Insurance</option>
+                                <option>Other</option>
+                            </optgroup>
+                        </select>
+                    </div>
+
+                    <div class="form-row">
                         <div class="form-group">
-                            <i class="fas fa-envelope form-icon"></i>
-                            <input type="email" class="form-input" placeholder="sita.karki@company.com" id="email" required>
-                        </div>
-                    </div>
-
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                        <div>
-                            <label class="form-label">Phone Number <span>*</span></label>
-                            <div class="form-group">
-                                <i class="fas fa-phone form-icon"></i>
-                                <input type="tel" class="form-input" placeholder="+977 98XXXXXXXX" id="phone" required>
-                            </div>
-                        </div>
-                        <div>
-                            <label class="form-label">WhatsApp Number</label>
-                            <div class="form-group">
-                                <i class="fab fa-whatsapp form-icon"></i>
-                                <input type="tel" class="form-input" placeholder="+977 98XXXXXXXX" id="whatsapp">
-                            </div>
-                        </div>
-                    </div>
-
-                    <div>
-                        <label class="form-label">Designation / Job Title <span>*</span></label>
-                        <div class="form-group">
-                            <i class="fas fa-id-badge form-icon"></i>
-                            <input type="text" class="form-input" placeholder="e.g. Sales Manager, Marketing Head" id="designation" required>
-                        </div>
-                    </div>
-
-                    <div>
-                        <label class="form-label">Nationality <span>*</span></label>
-                        <div class="form-group">
-                            <i class="fas fa-globe form-icon"></i>
-                            <select class="form-input" id="nationality" required>
-                                <option value="" disabled selected>Select nationality</option>
-                                <option>Nepali</option>
-                                <option>Indian</option>
-                                <option>Chinese</option>
-                                <option>American</option>
-                                <option>British</option>
-                                <option>German</option>
+                            <label class="form-label">Country <span class="required">*</span></label>
+                            <select class="form-input" name="country" required>
+                                <option value="">Select country</option>
+                                <option>Nepal</option>
+                                <option>India</option>
+                                <option>China</option>
+                                <option>USA</option>
+                                <option>UK</option>
+                                <option>Germany</option>
                                 <option>Other</option>
                             </select>
                         </div>
-                    </div>
-
-                    <!-- Number of Representatives -->
-                    <div>
-                        <label class="form-label">Number of Representatives Attending <span>*</span></label>
                         <div class="form-group">
-                            <i class="fas fa-users form-icon"></i>
-                            <select class="form-input" id="reps" required>
-                                <option value="" disabled selected>Select number</option>
-                                <option>1 person</option>
-                                <option>2 persons</option>
-                                <option>3 persons</option>
-                                <option>4–5 persons</option>
-                                <option>6+ persons</option>
-                            </select>
+                            <label class="form-label">City / Province <span class="required">*</span></label>
+                            <input type="text" class="form-input" name="city" placeholder="e.g. Biratnagar, Koshi" required>
                         </div>
                     </div>
                 </div>
-            </div>
 
-            <!-- Step 2: Business Information -->
-            <div class="page-section" id="section-2">
-                <div class="section-header px-8 py-5 border-b border-blue-900/30">
-                    <h2 class="text-xl font-bold text-white flex items-center gap-3">
-                        <i class="fas fa-building"></i> Business Information
-                    </h2>
-                    <p class="text-sm text-blue-200 mt-1">Details about your organization and products</p>
-                </div>
-                <div class="p-8 space-y-5">
-                    <div>
-                        <label class="form-label">Company / Brand Name <span>*</span></label>
-                        <div class="form-group">
-                            <i class="fas fa-building form-icon"></i>
-                            <input type="text" class="form-input" placeholder="Your Company Name" id="company" required>
-                        </div>
+                <!-- Additional Information -->
+                <div class="form-section">
+                    <div class="section-title">
+                        <i class="fas fa-comment mr-2" style="color: #095b8e;"></i> Additional Information
                     </div>
 
-                    <div>
-                        <label class="form-label">Type of Business <span>*</span></label>
-                        <div class="form-group">
-                            <i class="fas fa-briefcase form-icon"></i>
-                            <select class="form-input" id="biz_type" required>
-                                <option value="" disabled selected>Select category</option>
-                                <optgroup label="Accommodation">
-                                    <option>Hotel (3-Star)</option>
-                                    <option>Hotel (4-Star)</option>
-                                    <option>Hotel (5-Star)</option>
-                                    <option>Resort</option>
-                                    <option>Boutique Hotel / Lodge</option>
-                                    <option>Homestay / Guesthouse</option>
-                                </optgroup>
-                                <optgroup label="Travel & Tours">
-                                    <option>Tour Operator</option>
-                                    <option>Travel Agency</option>
-                                    <option>Adventure Tourism Company</option>
-                                </optgroup>
-                                <optgroup label="Transport & Aviation">
-                                    <option>Airline</option>
-                                    <option>Helicopter Service</option>
-                                    <option>Ground Transport</option>
-                                </optgroup>
-                                <optgroup label="Destination & Authority">
-                                    <option>Tourism Board / Authority</option>
-                                    <option>Provincial Government</option>
-                                    <option>Municipality</option>
-                                </optgroup>
-                                <optgroup label="Others">
-                                    <option>Spa & Wellness</option>
-                                    <option>Restaurant / Food & Beverage</option>
-                                    <option>Technology / Travel Tech</option>
-                                    <option>Insurance</option>
-                                    <option>Other</option>
-                                </optgroup>
-                            </select>
-                        </div>
-                    </div>
-
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                        <div>
-                            <label class="form-label">Country <span>*</span></label>
-                            <div class="form-group">
-                                <i class="fas fa-flag form-icon"></i>
-                                <select class="form-input" id="country" required>
-                                    <option value="" disabled selected>Select country</option>
-                                    <option>Nepal</option>
-                                    <option>India</option>
-                                    <option>China</option>
-                                    <option>USA</option>
-                                    <option>UK</option>
-                                    <option>Germany</option>
-                                    <option>Other</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div>
-                            <label class="form-label">City / Province <span>*</span></label>
-                            <div class="form-group">
-                                <i class="fas fa-city form-icon"></i>
-                                <input type="text" class="form-input" placeholder="e.g. Biratnagar, Koshi" id="city" required>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div>
-                        <label class="form-label">Company Website</label>
-                        <div class="form-group">
-                            <i class="fas fa-globe form-icon"></i>
-                            <input type="url" class="form-input" placeholder="https://yourcompany.com" id="website">
-                        </div>
-                    </div>
-
-                    <div>
-                        <label class="form-label">Brief Description of Products / Services <span>*</span></label>
-                        <textarea class="form-input" id="description" placeholder="Describe the tourism products, packages, or services you plan to showcase at the mart..."></textarea>
-                    </div>
-
-                    <div>
-                        <label class="form-label">Years in Business</label>
-                        <div class="form-group">
-                            <i class="fas fa-clock form-icon"></i>
-                            <select class="form-input" id="years">
-                                <option value="" disabled selected>Select range</option>
-                                <option>Less than 1 year</option>
-                                <option>1–3 years</option>
-                                <option>3–5 years</option>
-                                <option>5–10 years</option>
-                                <option>10+ years</option>
-                            </select>
-                        </div>
+                    <div class="form-group">
+                        <label class="form-label">Message / Products & Services Description</label>
+                        <textarea class="form-input" name="message" placeholder="Describe your tourism products, packages, or services you plan to showcase..."></textarea>
                     </div>
                 </div>
-            </div>
 
-            <!-- Step 3: Booth & Exhibition Needs -->
-            <div class="page-section" id="section-3">
-                <div class="section-header px-8 py-5 border-b border-blue-900/30">
-                    <h2 class="text-xl font-bold text-white flex items-center gap-3">
-                        <i class="fas fa-th-large"></i> Booth & Exhibition Needs
-                    </h2>
-                    <p class="text-sm text-blue-200 mt-1">Select your booth preference and requirements</p>
-                </div>
-                <div class="p-8 space-y-6">
+                <!-- Terms & Conditions -->
+                <label class="terms-checkbox">
+                    <input type="checkbox" name="terms" required>
+                    <span>I agree to the <a href="#">Terms & Conditions</a> and consent to my data being used for event management purposes.</span>
+                </label>
 
-                    <!-- Booth Size -->
-                    <div>
-                        <label class="form-label">Booth / Stall Size <span>*</span></label>
-                        <p class="text-xs text-gray-400 mb-3">Choose the booth size that best fits your needs</p>
-                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4" id="booth-options">
-
-                            <label class="booth-card cursor-pointer">
-                                <input type="radio" name="booth" value="standard" class="sr-only">
-                                <div class="booth-inner border-2 border-gray-200 rounded-2xl p-5 text-center hover:border-darkBlue transition-all">
-                                    <div class="text-3xl mb-2">🏪</div>
-                                    <p class="font-bold text-gray-900">Standard</p>
-                                    <p class="text-xs text-gray-500 mt-1">3m × 3m (9 sq.m)</p>
-                                    <p class="text-sm font-bold text-darkBlue mt-2">Basic Package</p>
-                                </div>
-                            </label>
-
-                            <label class="booth-card cursor-pointer">
-                                <input type="radio" name="booth" value="premium" class="sr-only">
-                                <div class="booth-inner border-2 border-gray-200 rounded-2xl p-5 text-center hover:border-darkBlue transition-all relative">
-                                    <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-primary text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase">Popular</div>
-                                    <div class="text-3xl mb-2">🏬</div>
-                                    <p class="font-bold text-gray-900">Premium</p>
-                                    <p class="text-xs text-gray-500 mt-1">3m × 6m (18 sq.m)</p>
-                                    <p class="text-sm font-bold text-darkBlue mt-2">Enhanced Visibility</p>
-                                </div>
-                            </label>
-
-                            <label class="booth-card cursor-pointer">
-                                <input type="radio" name="booth" value="corner" class="sr-only">
-                                <div class="booth-inner border-2 border-gray-200 rounded-2xl p-5 text-center hover:border-darkBlue transition-all">
-                                    <div class="text-3xl mb-2">🏢</div>
-                                    <p class="font-bold text-gray-900">Corner / Deluxe</p>
-                                    <p class="text-xs text-gray-500 mt-1">6m × 6m (36 sq.m)</p>
-                                    <p class="text-sm font-bold text-darkBlue mt-2">Maximum Exposure</p>
-                                </div>
-                            </label>
-                        </div>
-                    </div>
-
-                    <!-- Products to Exhibit -->
-                    <div>
-                        <label class="form-label">Products / Services to Exhibit <span>*</span></label>
-                        <p class="text-xs text-gray-400 mb-3">Select all that apply</p>
-                        <div class="grid grid-cols-2 sm:grid-cols-3 gap-3">
-                            <label class="flex items-center gap-2 cursor-pointer p-3 border-2 border-gray-200 rounded-xl hover:border-darkBlue transition-colors has-[:checked]:border-darkBlue has-[:checked]:bg-gray-50">
-                                <input type="checkbox" class="accent-darkBlue" name="exhibit">
-                                <span class="text-xs font-semibold text-gray-700">🏨 Hotel / Resort</span>
-                            </label>
-                            <label class="flex items-center gap-2 cursor-pointer p-3 border-2 border-gray-200 rounded-xl hover:border-darkBlue transition-colors has-[:checked]:border-darkBlue has-[:checked]:bg-gray-50">
-                                <input type="checkbox" class="accent-darkBlue" name="exhibit">
-                                <span class="text-xs font-semibold text-gray-700">🗺️ Tour Packages</span>
-                            </label>
-                            <label class="flex items-center gap-2 cursor-pointer p-3 border-2 border-gray-200 rounded-xl hover:border-darkBlue transition-colors has-[:checked]:border-darkBlue has-[:checked]:bg-gray-50">
-                                <input type="checkbox" class="accent-darkBlue" name="exhibit">
-                                <span class="text-xs font-semibold text-gray-700">✈️ Airlines</span>
-                            </label>
-                            <label class="flex items-center gap-2 cursor-pointer p-3 border-2 border-gray-200 rounded-xl hover:border-darkBlue transition-colors has-[:checked]:border-darkBlue has-[:checked]:bg-gray-50">
-                                <input type="checkbox" class="accent-darkBlue" name="exhibit">
-                                <span class="text-xs font-semibold text-gray-700">🏔️ Adventure</span>
-                            </label>
-                            <label class="flex items-center gap-2 cursor-pointer p-3 border-2 border-gray-200 rounded-xl hover:border-darkBlue transition-colors has-[:checked]:border-darkBlue has-[:checked]:bg-gray-50">
-                                <input type="checkbox" class="accent-darkBlue" name="exhibit">
-                                <span class="text-xs font-semibold text-gray-700">🗺️ Destination</span>
-                            </label>
-                            <label class="flex items-center gap-2 cursor-pointer p-3 border-2 border-gray-200 rounded-xl hover:border-darkBlue transition-colors has-[:checked]:border-darkBlue has-[:checked]:bg-gray-50">
-                                <input type="checkbox" class="accent-darkBlue" name="exhibit">
-                                <span class="text-xs font-semibold text-gray-700">🌿 Eco Tourism</span>
-                            </label>
-                        </div>
-                    </div>
-
-                    <!-- Special Requirements -->
-                    <div>
-                        <label class="form-label">Booth Special Requirements</label>
-                        <p class="text-xs text-gray-400 mb-3">Select any special needs</p>
-                        <div class="grid grid-cols-2 gap-3">
-                            <label class="flex items-center gap-3 cursor-pointer p-3 border-2 border-gray-200 rounded-xl hover:border-darkBlue transition-colors has-[:checked]:border-darkBlue has-[:checked]:bg-gray-50">
-                                <input type="checkbox" class="accent-darkBlue w-4 h-4">
-                                <span class="text-xs font-medium text-gray-700">💻 Power Supply (AC)</span>
-                            </label>
-                            <label class="flex items-center gap-3 cursor-pointer p-3 border-2 border-gray-200 rounded-xl hover:border-darkBlue transition-colors has-[:checked]:border-darkBlue has-[:checked]:bg-gray-50">
-                                <input type="checkbox" class="accent-darkBlue w-4 h-4">
-                                <span class="text-xs font-medium text-gray-700">📶 WiFi Access</span>
-                            </label>
-                            <label class="flex items-center gap-3 cursor-pointer p-3 border-2 border-gray-200 rounded-xl hover:border-darkBlue transition-colors has-[:checked]:border-darkBlue has-[:checked]:bg-gray-50">
-                                <input type="checkbox" class="accent-darkBlue w-4 h-4">
-                                <span class="text-xs font-medium text-gray-700">📺 LED Screen</span>
-                            </label>
-                            <label class="flex items-center gap-3 cursor-pointer p-3 border-2 border-gray-200 rounded-xl hover:border-darkBlue transition-colors has-[:checked]:border-darkBlue has-[:checked]:bg-gray-50">
-                                <input type="checkbox" class="accent-darkBlue w-4 h-4">
-                                <span class="text-xs font-medium text-gray-700">🗄️ Extra Storage</span>
-                            </label>
-                        </div>
-                    </div>
-
-                    <!-- B2B Meetings Interest -->
-                    <div>
-                        <label class="form-label">Interested in Pre-Scheduled B2B Meetings?</label>
-                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
-                            <label class="flex items-center gap-3 cursor-pointer p-4 border-2 border-gray-200 rounded-xl hover:border-darkBlue transition-colors has-[:checked]:border-darkBlue has-[:checked]:bg-gray-50">
-                                <input type="radio" class="accent-darkBlue" name="b2b" value="yes">
-                                <span class="text-sm font-semibold text-gray-700">✅ Yes</span>
-                            </label>
-                            <label class="flex items-center gap-3 cursor-pointer p-4 border-2 border-gray-200 rounded-xl hover:border-darkBlue transition-colors has-[:checked]:border-darkBlue has-[:checked]:bg-gray-50">
-                                <input type="radio" class="accent-darkBlue" name="b2b" value="maybe">
-                                <span class="text-sm font-semibold text-gray-700">🤔 Maybe</span>
-                            </label>
-                            <label class="flex items-center gap-3 cursor-pointer p-4 border-2 border-gray-200 rounded-xl hover:border-darkBlue transition-colors has-[:checked]:border-darkBlue has-[:checked]:bg-gray-50">
-                                <input type="radio" class="accent-darkBlue" name="b2b" value="no">
-                                <span class="text-sm font-semibold text-gray-700">❌ No</span>
-                            </label>
-                        </div>
-                    </div>
-
-                    <!-- Panel Discussion -->
-                    <div>
-                        <label class="form-label">Interested in Panel Discussion / Speaking Opportunity?</label>
-                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                            <label class="flex items-center gap-3 cursor-pointer p-4 border-2 border-gray-200 rounded-xl hover:border-darkBlue transition-colors has-[:checked]:border-darkBlue has-[:checked]:bg-gray-50">
-                                <input type="radio" class="accent-darkBlue" name="speak" value="yes">
-                                <span class="text-sm font-semibold text-gray-700">✅ Yes, I'm interested</span>
-                            </label>
-                            <label class="flex items-center gap-3 cursor-pointer p-4 border-2 border-gray-200 rounded-xl hover:border-darkBlue transition-colors has-[:checked]:border-darkBlue has-[:checked]:bg-gray-50">
-                                <input type="radio" class="accent-darkBlue" name="speak" value="no">
-                                <span class="text-sm font-semibold text-gray-700">❌ Not this time</span>
-                            </label>
-                        </div>
-                    </div>
-
-                    <!-- Additional Message -->
-                    <div>
-                        <label class="form-label">Additional Requirements / Message</label>
-                        <textarea class="form-input" placeholder="Any special setup, branding, or event requirements..."></textarea>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Step 4: Review & Confirm -->
-            <div class="page-section" id="section-4">
-                <div class="section-header px-8 py-5 border-b border-blue-900/30">
-                    <h2 class="text-xl font-bold text-white flex items-center gap-3">
-                        <i class="fas fa-clipboard-check"></i> Review & Submit
-                    </h2>
-                    <p class="text-sm text-blue-200 mt-1">Confirm your details before submission</p>
-                </div>
-                <div class="p-8">
-
-                    <!-- Summary Card -->
-                    <div class="bg-gray-50 rounded-2xl border border-gray-200 p-6 mb-6">
-                        <h3 class="font-bold text-gray-700 mb-4 text-sm uppercase tracking-wider flex items-center gap-2">
-                            <i class="fas fa-store text-darkBlue"></i> Exhibitor Registration Summary
-                        </h3>
-                        <div id="summary" class="space-y-2 text-sm text-gray-600">
-                            <!-- Filled by JS -->
-                        </div>
-                    </div>
-
-                    <!-- Important Notice -->
-                    <div class="bg-amber-50 border border-amber-200 rounded-xl p-4 mb-6 flex items-start gap-3">
-                        <i class="fas fa-exclamation-triangle text-amber-500 mt-0.5 shrink-0"></i>
-                        <div>
-                            <p class="text-sm font-semibold text-amber-800">Important</p>
-                            <p class="text-xs text-amber-700 mt-1">Booth allocation is subject to availability and payment confirmation. Our team will contact you within 48 hours with booth details and payment instructions.</p>
-                        </div>
-                    </div>
-
-                    <!-- Terms -->
-                    <div class="space-y-4 mb-6">
-                        <label class="flex items-start gap-3 cursor-pointer">
-                            <input type="checkbox" id="terms" class="mt-1 w-4 h-4 accent-darkBlue rounded">
-                            <span class="text-sm text-gray-600 leading-relaxed">
-                                I agree to the <a href="#" class="text-darkBlue font-semibold hover:underline">Terms & Conditions</a> and <a href="#" class="text-darkBlue font-semibold hover:underline">Exhibitor Guidelines</a> of the 6th Eastern Travel Mart 2026.
-                                <span class="text-red-500">*</span>
-                            </span>
-                        </label>
-                        <label class="flex items-start gap-3 cursor-pointer">
-                            <input type="checkbox" id="payment" class="mt-1 w-4 h-4 accent-darkBlue rounded">
-                            <span class="text-sm text-gray-600">
-                                I understand that booth space is confirmed only after receipt of payment.
-                                <span class="text-red-500">*</span>
-                            </span>
-                        </label>
-                        <label class="flex items-start gap-3 cursor-pointer">
-                            <input type="checkbox" id="newsletter" class="mt-1 w-4 h-4 accent-darkBlue rounded">
-                            <span class="text-sm text-gray-600">I'd like to receive updates and future event information from ETM.</span>
-                        </label>
-                    </div>
-
-                    <!-- Submit -->
-                    <button onclick="submitForm()" id="submit-btn"
-                        class="w-full bg-darkBlue hover:bg-primary text-white py-4 rounded-xl font-bold text-lg transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 flex items-center justify-center gap-3">
-                        <i class="fas fa-paper-plane"></i> Submit Exhibitor Application
+                <!-- Action Buttons -->
+                <div class="form-actions">
+                    <a href="index.html" class="btn btn-secondary">
+                        <i class="fas fa-arrow-left"></i> Back to Home
+                    </a>
+                    <button type="submit" class="btn btn-submit">
+                        <i class="fas fa-paper-plane"></i> Submit Registration
                     </button>
-
-                    <p class="text-center text-xs text-gray-400 mt-4">
-                        You'll receive a confirmation and booth details within 24–48 hours.
-                    </p>
                 </div>
-            </div>
 
-            <!-- SUCCESS STATE -->
-            <div class="page-section" id="section-success">
-                <div class="p-12 text-center">
-                    <div class="success-animation w-24 h-24 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
-                        <i class="fas fa-check-circle text-green-500 text-5xl"></i>
-                    </div>
-                    <h2 class="text-2xl font-extrabold text-gray-900 mb-3">Application Submitted!</h2>
-                    <p class="text-gray-600 max-w-md mx-auto mb-2">
-                        Thank you for applying as an <strong>Exhibitor</strong> at the 6th Eastern Travel Mart 2026.
-                    </p>
-                    <p class="text-gray-500 text-sm mb-2">
-                        A confirmation has been sent to <span id="confirm-email" class="font-semibold text-darkBlue"></span>.
-                    </p>
-                    <p class="text-gray-500 text-sm mb-8">
-                        Our team will review your application and contact you with booth details and payment instructions within 48 hours.
-                    </p>
-                    <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                        <a href="index.html" class="inline-flex items-center gap-2 bg-darkBlue hover:bg-primary text-white px-8 py-3 rounded-xl font-semibold transition-colors">
-                            <i class="fas fa-home"></i> Back to Home
-                        </a>
-                        <a href="register-buyer.html" class="inline-flex items-center gap-2 bg-gray-100 text-gray-700 hover:bg-gray-200 px-8 py-3 rounded-xl font-semibold transition-colors">
-                            Register as Buyer <i class="fas fa-arrow-right"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
+            </form>
+        </div>
 
-            <!-- Navigation Buttons -->
-            <div class="px-8 py-6 bg-gray-50 border-t border-gray-100 flex justify-between items-center" id="nav-buttons">
-                <button onclick="prevStep()" id="prev-btn"
-                    class="hidden items-center gap-2 text-sm font-semibold text-gray-500 hover:text-gray-800 px-5 py-2.5 rounded-xl border border-gray-200 hover:bg-gray-100 transition-colors">
-                    <i class="fas fa-arrow-left"></i> Previous
-                </button>
-                <div id="prev-placeholder"></div>
-                <button onclick="nextStep()" id="next-btn"
-                    class="flex items-center gap-2 text-sm font-semibold bg-darkBlue hover:bg-primary text-white px-7 py-2.5 rounded-xl transition-colors shadow-md">
-                    Next Step <i class="fas fa-arrow-right"></i>
-                </button>
-            </div>
-
-        </div><!-- /form card -->
-
-        <!-- Cross-link -->
-        <p class="text-center text-sm text-gray-400 mt-6">
-            Looking to buy instead? 
-            <a href="register-buyer.html" class="text-primary font-semibold hover:underline">Register as a Buyer →</a>
+        <!-- Footer Note -->
+        <p class="text-center text-sm text-gray-600 mt-8">
+            Want to register as a buyer instead?
+            <a href="register-buyer.html" class="text-blue-600 font-semibold hover:underline">Register as Buyer →</a>
         </p>
+    </div>
 
-    </div><!-- /container -->
-
-    <footer class="bg-darkerBlue text-center py-6 text-sm text-blue-300 mt-10">
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-center py-6 text-sm text-gray-400 mt-12">
         <p>&copy; 2026 Eastern Travel Mart. All Rights Reserved.</p>
-        <p class="text-xs mt-1 text-blue-400">Powered by <a href="https://kafals.com.np" class="text-white hover:text-primary transition-colors font-semibold">Kafals</a> · Registration by <a href="https://flowvent.io" class="text-white hover:text-primary transition-colors font-semibold">Flowvent</a></p>
+        <p class="text-xs mt-2">Powered by <a href="https://kafals.com.np" class="text-white hover:no-underline">Kafals</a> · <a href="https://flowvent.io" class="text-white hover:no-underline">Flowvent</a></p>
     </footer>
 
     <script>
-        let currentStep = 1;
-        const totalSteps = 4;
+        function handleSubmit(event) {
+            event.preventDefault();
 
-        function updateStepUI() {
-            const circles = [
-                document.getElementById('s1-circle'),
-                document.getElementById('s2-circle'),
-                document.getElementById('s3-circle'),
-                document.getElementById('s4-circle')
-            ];
-            const labels = [null,
-                document.getElementById('s2-label'),
-                document.getElementById('s3-label'),
-                document.getElementById('s4-label')
-            ];
+            // Simulate form submission
+            const formData = new FormData(event.target);
+            console.log('Form submitted with data:', Object.fromEntries(formData));
 
-            circles.forEach((c, i) => {
-                const step = i + 1;
-                if (step < currentStep) {
-                    c.className = 'w-10 h-10 rounded-full bg-green-500 text-white flex items-center justify-center font-bold text-sm shadow-md';
-                    c.innerHTML = '<i class="fas fa-check text-xs"></i>';
-                } else if (step === currentStep) {
-                    c.className = 'w-10 h-10 rounded-full bg-darkBlue text-white flex items-center justify-center font-bold text-sm shadow-md';
-                    c.style.background = '#095b8e';
-                    c.innerHTML = `<span>${step}</span>`;
-                } else {
-                    c.className = 'w-10 h-10 rounded-full bg-gray-200 text-gray-500 flex items-center justify-center font-bold text-sm';
-                    c.style.background = '';
-                    c.innerHTML = `<span>${step}</span>`;
-                }
-                if (labels[i]) {
-                    labels[i].className = step <= currentStep
-                        ? 'text-xs font-semibold hidden sm:block' + (step === currentStep ? ' text-darkBlue' : ' text-green-600')
-                        : 'text-xs font-semibold text-gray-400 hidden sm:block';
-                }
-            });
+            // Show success message
+            const successMsg = document.getElementById('successMessage');
+            successMsg.classList.add('show');
 
-            const line = document.getElementById('step-line');
-            line.style.width = `${((currentStep - 1) / (totalSteps - 1)) * 100}%`;
+            // Reset form
+            event.target.reset();
 
-            const prevBtn = document.getElementById('prev-btn');
-            const prevPlaceholder = document.getElementById('prev-placeholder');
-            if (currentStep > 1) {
-                prevBtn.classList.remove('hidden');
-                prevBtn.classList.add('flex');
-                prevPlaceholder.style.display = 'none';
-            } else {
-                prevBtn.classList.add('hidden');
-                prevBtn.classList.remove('flex');
-                prevPlaceholder.style.display = 'block';
-            }
+            // Hide success message after 5 seconds
+            setTimeout(() => {
+                successMsg.classList.remove('show');
+            }, 5000);
 
-            const nextBtn = document.getElementById('next-btn');
-            nextBtn.style.display = currentStep === totalSteps ? 'none' : 'flex';
-        }
-
-        function showSection(id) {
-            document.querySelectorAll('.page-section').forEach(s => s.classList.remove('active'));
-            document.getElementById(`section-${id}`).classList.add('active');
-        }
-
-        function nextStep() {
-            if (currentStep < totalSteps) {
-                if (currentStep === totalSteps - 1) buildSummary();
-                currentStep++;
-                showSection(currentStep);
-                updateStepUI();
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-            }
-        }
-
-        function prevStep() {
-            if (currentStep > 1) {
-                currentStep--;
-                showSection(currentStep);
-                updateStepUI();
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-            }
-        }
-
-        function val(id) {
-            const el = document.getElementById(id);
-            return el ? el.value : '';
-        }
-
-        function buildSummary() {
-            const selectedBooth = document.querySelector('input[name="booth"]:checked');
-            const summaryEl = document.getElementById('summary');
-            const rows = [
-                ['Full Name', `${val('fname')} ${val('lname')}`],
-                ['Email', val('email')],
-                ['Phone', val('phone')],
-                ['Designation', val('designation')],
-                ['Company', val('company')],
-                ['Business Type', val('biz_type')],
-                ['Country', val('country')],
-                ['City', val('city')],
-                ['Booth Size', selectedBooth ? selectedBooth.value : 'Not selected'],
-                ['Representatives', val('reps')],
-            ];
-            summaryEl.innerHTML = rows.map(([k, v]) => v ?
-                `<div class="flex justify-between border-b border-gray-100 pb-2">
-                    <span class="font-medium text-gray-500 w-44 shrink-0">${k}</span>
-                    <span class="text-gray-800 font-semibold text-right capitalize">${v}</span>
-                </div>` : ''
-            ).join('');
-        }
-
-        function submitForm() {
-            const terms = document.getElementById('terms');
-            const payment = document.getElementById('payment');
-            if (!terms.checked) {
-                alert('Please agree to the Terms & Conditions to proceed.');
-                return;
-            }
-            if (!payment.checked) {
-                alert('Please acknowledge the payment confirmation policy.');
-                return;
-            }
-            const emailVal = val('email') || 'your email address';
-            document.getElementById('confirm-email').innerText = emailVal;
-            document.getElementById('nav-buttons').style.display = 'none';
-            showSection('success');
+            // Scroll to top
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
-
-        // Booth card visual selection
-        document.querySelectorAll('input[name="booth"]').forEach(radio => {
-            radio.addEventListener('change', function () {
-                document.querySelectorAll('.booth-inner').forEach(el => {
-                    el.style.borderColor = '';
-                    el.style.background = '';
-                });
-                const inner = this.closest('.booth-card').querySelector('.booth-inner');
-                inner.style.borderColor = '#095b8e';
-                inner.style.background = '#e6f2fc';
-            });
-        });
-
-        updateStepUI();
     </script>
 </body>
 </html>
