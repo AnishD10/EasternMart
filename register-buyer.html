@@ -280,6 +280,22 @@
                             <input type="tel" class="form-input" name="phone" placeholder="+977 98XXXXXXXX" required>
                         </div>
                     </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="form-label">Instagram URL</label>
+                            <input type="url" class="form-input" name="instagramUrl" placeholder="https://instagram.com/yourprofile">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">TikTok URL</label>
+                            <input type="url" class="form-input" name="tiktokUrl" placeholder="https://tiktok.com/@yourprofile">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Facebook URL</label>
+                        <input type="url" class="form-input" name="facebookUrl" placeholder="https://facebook.com/yourprofile">
+                    </div>
                 </div>
 
                 <!-- Company Information -->
@@ -289,14 +305,14 @@
                     </div>
 
                     <div class="form-group">
-                        <label class="form-label">Company / Organization Name <span class="required">*</span></label>
-                        <input type="text" class="form-input" name="company" placeholder="Your Company Name" required>
+                        <label class="form-label">Company / Organization Name</label>
+                        <input type="text" class="form-input" name="company" placeholder="Your Company Name">
                     </div>
 
                     <div class="form-row">
                         <div class="form-group">
-                            <label class="form-label">Country <span class="required">*</span></label>
-                            <select class="form-input" name="country" required>
+                            <label class="form-label">Country</label>
+                            <select class="form-input" id="countrySelect" name="country">
                                 <option value="">Select country</option>
                                 <option>Nepal</option>
                                 <option>India</option>
@@ -304,26 +320,36 @@
                                 <option>USA</option>
                                 <option>UK</option>
                                 <option>Germany</option>
-                                <option>Other</option>
+                                <option value="Other">Other</option>
                             </select>
                         </div>
                         <div class="form-group">
-                            <label class="form-label">City <span class="required">*</span></label>
-                            <input type="text" class="form-input" name="city" placeholder="City name" required>
+                            <label class="form-label">City</label>
+                            <input type="text" class="form-input" name="city" placeholder="City name">
                         </div>
                     </div>
 
+                    <div class="form-group" id="otherCountryGroup" style="display: none;">
+                        <label class="form-label">Please Specify Country <span class="required">*</span></label>
+                        <input type="text" class="form-input" id="otherCountryInput" name="otherCountry" placeholder="Enter your country name">
+                    </div>
+
                     <div class="form-group">
-                        <label class="form-label">Business Type <span class="required">*</span></label>
-                        <select class="form-input" name="businessType" required>
+                        <label class="form-label">Business Type</label>
+                        <select class="form-input" id="businessTypeSelect" name="businessType">
                             <option value="">Select business type</option>
                             <option>Tour Operator</option>
                             <option>Travel Agent</option>
                             <option>Destination Management Company</option>
                             <option>Hotel / Accommodation</option>
                             <option>Airline / Transport</option>
-                            <option>Other</option>
+                            <option value="Other">Other</option>
                         </select>
+                    </div>
+
+                    <div class="form-group" id="otherBusinessTypeGroup" style="display: none;">
+                        <label class="form-label">Please Specify Business Type <span class="required">*</span></label>
+                        <input type="text" class="form-input" id="otherBusinessTypeInput" name="otherBusinessType" placeholder="Enter your business type">
                     </div>
                 </div>
 
@@ -372,6 +398,51 @@
     </footer>
 
     <script>
+        function toggleOtherCountryField() {
+            const countrySelect = document.getElementById('countrySelect');
+            const otherCountryGroup = document.getElementById('otherCountryGroup');
+            const otherCountryInput = document.getElementById('otherCountryInput');
+            const isOtherSelected = countrySelect && countrySelect.value === 'Other';
+
+            if (isOtherSelected) {
+                otherCountryGroup.style.display = 'block';
+                otherCountryInput.required = true;
+            } else {
+                otherCountryGroup.style.display = 'none';
+                otherCountryInput.required = false;
+                otherCountryInput.value = '';
+            }
+        }
+
+        function toggleOtherBusinessTypeField() {
+            const businessTypeSelect = document.getElementById('businessTypeSelect');
+            const otherBusinessTypeGroup = document.getElementById('otherBusinessTypeGroup');
+            const otherBusinessTypeInput = document.getElementById('otherBusinessTypeInput');
+            const isOtherSelected = businessTypeSelect && businessTypeSelect.value === 'Other';
+
+            if (isOtherSelected) {
+                otherBusinessTypeGroup.style.display = 'block';
+                otherBusinessTypeInput.required = true;
+            } else {
+                otherBusinessTypeGroup.style.display = 'none';
+                otherBusinessTypeInput.required = false;
+                otherBusinessTypeInput.value = '';
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const countrySelect = document.getElementById('countrySelect');
+            const businessTypeSelect = document.getElementById('businessTypeSelect');
+            if (countrySelect) {
+                countrySelect.addEventListener('change', toggleOtherCountryField);
+            }
+            if (businessTypeSelect) {
+                businessTypeSelect.addEventListener('change', toggleOtherBusinessTypeField);
+            }
+            toggleOtherCountryField();
+            toggleOtherBusinessTypeField();
+        });
+
         function handleSubmit(event) {
             event.preventDefault();
 
@@ -385,6 +456,8 @@
 
             // Reset form
             event.target.reset();
+            toggleOtherCountryField();
+            toggleOtherBusinessTypeField();
 
             // Hide success message after 5 seconds
             setTimeout(() => {
