@@ -1,0 +1,803 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>6th Eastern Travel Mart | Koshi Province</title>
+    <meta name="description" content="Join the 6th Eastern Travel Mart to explore and promote tourism in Koshi Province.">
+    
+    <!-- Google Fonts: Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#0381DC',
+                        secondary: '#0381DC',
+                        darkBlue: '#095b8e',
+                        lightBlue: '#e6f2fc',
+                        darkerBlue: '#053c5e',
+                    },
+                    fontFamily: {
+                        sans: ['Poppins', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        .hero-bg {
+            background-image: linear-gradient(rgba(9, 91, 142, 0.85), rgba(3, 129, 220, 0.75)), url('https://images.unsplash.com/photo-1544735716-392fe2489ffa?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+        
+        .box-partner {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .box-partner:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 25px -5px rgba(3, 129, 220, 0.15), 0 10px 10px -5px rgba(3, 129, 220, 0.1);
+            border-color: #0381DC;
+        }
+
+        .team-card:hover .team-social {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .gallery-img {
+            transition: transform 0.5s ease;
+        }
+        
+        .gallery-container:hover .gallery-img {
+            transform: scale(1.05);
+        }
+
+        /* Nav link active state handled by intersection observer in JS */
+        .nav-link.active {
+            color: #0381DC;
+            border-bottom-color: #0381DC;
+        }
+    </style>
+</head>
+<body class="font-sans text-gray-800 bg-gray-50 flex flex-col min-h-screen">
+
+    <!-- Navigation -->
+    <nav id="navbar" class="bg-white shadow-md fixed w-full top-0 z-50 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20">
+                <!-- Logo -->
+                <div class="flex items-center">
+                    <a href="#home" class="flex-shrink-0 flex items-center gap-3">
+                        <img class="h-12 w-auto" src="images/logo.svg" alt="ETM Logo" onerror="this.onerror=null; this.src='https://placehold.co/150x50/0381DC/FFF?text=ETM+Logo';">
+                    </a>
+                </div>
+                
+                <!-- Desktop Menu -->
+                <div class="hidden lg:flex items-center space-x-6">
+                    <a href="#home" class="nav-link text-gray-600 hover:text-primary font-medium transition-colors border-b-2 border-transparent h-full flex items-center">Home</a>
+                    <a href="#about" class="nav-link text-gray-600 hover:text-primary font-medium transition-colors border-b-2 border-transparent h-full flex items-center">About</a>
+                    <a href="#partners" class="nav-link text-gray-600 hover:text-primary font-medium transition-colors border-b-2 border-transparent h-full flex items-center">Partners</a>
+                    <a href="#program" class="nav-link text-gray-600 hover:text-primary font-medium transition-colors border-b-2 border-transparent h-full flex items-center">Program</a>
+                    
+                    <div class="flex gap-2 ml-4">
+                        <a href="#register-section" class="bg-primary hover:bg-darkBlue text-white px-5 py-2.5 rounded-full font-medium transition-colors text-sm shadow-md">Register</a>
+                    </div>
+                </div>
+
+                <!-- Mobile menu button -->
+                <div class="flex items-center lg:hidden">
+                    <button type="button" onclick="toggleMobileMenu()" class="text-gray-600 hover:text-primary focus:outline-none">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden lg:hidden bg-white border-t border-gray-100 absolute w-full shadow-lg">
+            <div class="px-4 pt-2 pb-6 space-y-1">
+                <a href="#home" onclick="toggleMobileMenu()" class="block px-3 py-3 text-base font-medium text-gray-800 hover:text-primary hover:bg-lightBlue rounded-md border-b border-gray-50">Home</a>
+                <a href="#about" onclick="toggleMobileMenu()" class="block px-3 py-3 text-base font-medium text-gray-800 hover:text-primary hover:bg-lightBlue rounded-md border-b border-gray-50">About</a>
+                <a href="#partners" onclick="toggleMobileMenu()" class="block px-3 py-3 text-base font-medium text-gray-800 hover:text-primary hover:bg-lightBlue rounded-md border-b border-gray-50">Partners</a>
+                <a href="#program" onclick="toggleMobileMenu()" class="block px-3 py-3 text-base font-medium text-gray-800 hover:text-primary hover:bg-lightBlue rounded-md border-b border-gray-50">Program</a>
+                
+                <div class="grid grid-cols-1 gap-3 pt-4 px-2">
+                    <a href="#register-section" onclick="toggleMobileMenu()" class="text-center bg-primary text-white py-2 rounded-lg font-medium text-sm">Register Now</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="flex-grow pt-20"> <!-- pt-20 to account for fixed header -->
+
+        <!-- HERO SECTION -->
+        <section id="home" class="hero-bg relative pt-24 pb-32 flex items-center justify-center text-center min-h-[95vh]">
+            <div class="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <h1 class="text-5xl md:text-6xl lg:text-8xl font-extrabold text-white mb-6 leading-tight drop-shadow-2xl">
+                    6th Eastern Travel Mart <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-300 to-white">2026</span>
+                </h1>
+                
+                <!-- Redesigned Date & Venue Pill -->
+                <div class="inline-flex flex-col md:flex-row items-center justify-center gap-4 md:gap-8 bg-white/10 backdrop-blur-md border border-white/20 rounded-3xl py-4 px-8 mb-8 shadow-2xl">
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-white"><i class="fas fa-calendar-alt"></i></div>
+                        <span class="text-white font-semibold text-lg md:text-xl text-left leading-tight">28th, 29th & 30th<br><span class="text-blue-200 text-sm font-normal">March 2026</span></span>
+                    </div>
+                    <div class="hidden md:block w-px h-12 bg-white/20"></div>
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-white"><i class="fas fa-map-marker-alt"></i></div>
+                        <span class="text-white font-semibold text-lg md:text-xl text-left leading-tight">Soaltee Westend<br><span class="text-blue-200 text-sm font-normal">Itahari, Koshi Province</span></span>
+                    </div>
+                </div>
+
+                <p class="text-lg md:text-xl text-gray-100 mb-12 max-w-3xl mx-auto font-light drop-shadow">
+                    Connecting Tourism, Trade & Travel Industry of Eastern Nepal with the Global Market. Build partnerships, promote destinations, and expand business opportunities.
+                </p>
+
+                <!-- Countdown Timer -->
+                <div class="flex justify-center gap-3 sm:gap-6 mb-12">
+                    <div class="bg-black/30 backdrop-blur-sm border border-white/10 rounded-xl p-3 sm:p-5 min-w-[80px] sm:min-w-[100px] shadow-inner">
+                        <span id="days" class="block text-3xl sm:text-5xl font-bold text-white mb-1">00</span>
+                        <span class="text-xs sm:text-sm text-blue-200 uppercase tracking-wider font-medium">Days</span>
+                    </div>
+                    <div class="bg-black/30 backdrop-blur-sm border border-white/10 rounded-xl p-3 sm:p-5 min-w-[80px] sm:min-w-[100px] shadow-inner">
+                        <span id="hours" class="block text-3xl sm:text-5xl font-bold text-white mb-1">00</span>
+                        <span class="text-xs sm:text-sm text-blue-200 uppercase tracking-wider font-medium">Hours</span>
+                    </div>
+                    <div class="bg-black/30 backdrop-blur-sm border border-white/10 rounded-xl p-3 sm:p-5 min-w-[80px] sm:min-w-[100px] shadow-inner">
+                        <span id="mins" class="block text-3xl sm:text-5xl font-bold text-white mb-1">00</span>
+                        <span class="text-xs sm:text-sm text-blue-200 uppercase tracking-wider font-medium">Mins</span>
+                    </div>
+                    <div class="bg-black/30 backdrop-blur-sm border border-white/10 rounded-xl p-3 sm:p-5 min-w-[80px] sm:min-w-[100px] shadow-inner">
+                        <span id="secs" class="block text-3xl sm:text-5xl font-bold text-white mb-1">00</span>
+                        <span class="text-xs sm:text-sm text-blue-200 uppercase tracking-wider font-medium">Secs</span>
+                    </div>
+                </div>
+
+                <!-- Primary CTAs (Separate Registration Buttons) -->
+                <div class="flex flex-col sm:flex-row justify-center items-center gap-5">
+                    <a href="#register-section" class="w-full sm:w-auto bg-white text-darkBlue px-8 py-4 rounded-full font-bold text-lg transition-all shadow-xl transform hover:-translate-y-1 hover:bg-gray-50 flex items-center justify-center gap-3">
+                        <i class="fas fa-store text-primary"></i> Become Exhibitor
+                    </a>
+                    <a href="#register-section" class="w-full sm:w-auto bg-primary text-white border-2 border-primary hover:bg-darkBlue hover:border-darkBlue px-8 py-4 rounded-full font-bold text-lg transition-all shadow-xl transform hover:-translate-y-1 flex items-center justify-center gap-3">
+                        <i class="fas fa-user-tag"></i> Become Buyer
+                    </a>
+                    <a href="#register-section" class="w-full sm:w-auto bg-transparent border-2 border-white text-white hover:bg-white/10 px-8 py-4 rounded-full font-bold text-lg transition-all shadow-lg transform hover:-translate-y-1 flex items-center justify-center gap-3">
+                        <i class="fas fa-walking"></i> Visitor
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Bottom Wave/Shape Divider -->
+            <div class="absolute bottom-0 w-full overflow-hidden leading-none z-0">
+                <svg class="relative block w-full h-12 md:h-24" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                    <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V120H0V95.8C59.71,118.08,130.83,123.63,200.27,105.2,243.6,93.84,283.47,73.5,321.39,56.44Z" fill="#ffffff"></path>
+                </svg>
+            </div>
+        </section>
+
+        <!-- ABOUT & BROCHURE SECTION -->
+        <section id="about" class="py-24 bg-gray-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                    <div class="order-2 lg:order-1 relative">
+                        <div class="absolute inset-0 bg-primary transform translate-x-4 translate-y-4 rounded-2xl -z-10"></div>
+                        <img src="https://images.unsplash.com/photo-1585408331568-7c8702b851b4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Eastern Nepal Tourism" class="rounded-2xl shadow-xl w-full object-cover h-[500px]">
+                        
+                        <!-- Floating Stat Box -->
+                        <div class="absolute -bottom-6 -left-6 bg-white p-6 rounded-xl shadow-2xl border border-gray-100 animate-bounce" style="animation-duration: 3s;">
+                            <div class="flex items-center gap-4">
+                                <div class="bg-lightBlue p-4 rounded-full text-primary text-2xl">
+                                    <i class="fas fa-handshake"></i>
+                                </div>
+                                <div>
+                                    <p class="text-3xl font-bold text-gray-900">500+</p>
+                                    <p class="text-sm text-gray-500 font-medium">B2B Meetings</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="order-1 lg:order-2">
+                        <h2 class="text-4xl font-extrabold text-gray-900 mb-6 leading-tight uppercase tracking-tight">About Eastern Travel Mart</h2>
+                        <p class="text-gray-600 mb-5 text-lg leading-relaxed">
+                            The <strong>Eastern Travel Mart (ETM) 2026</strong> is one of the leading tourism trade platforms in Eastern Nepal designed to connect tourism stakeholders with national and international markets.
+                        </p>
+                        <p class="text-gray-600 mb-8 leading-relaxed">
+                            The mart brings together tour operators, travel agencies, destination managers, hospitality brands, airlines, tourism boards, and content creators to explore new opportunities, strengthen partnerships, and promote tourism destinations.
+                        </p>
+                        
+                        <h3 class="text-xl font-bold text-gray-900 mb-4 border-b-2 border-primary inline-block pb-1">The event will host:</h3>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-y-3 gap-x-6 mb-8">
+                            <div class="flex items-center gap-3 text-gray-700 font-medium"><i class="fas fa-check-circle text-primary"></i> National & International Buyers</div>
+                            <div class="flex items-center gap-3 text-gray-700 font-medium"><i class="fas fa-check-circle text-primary"></i> Tourism Sellers & Exhibitors</div>
+                            <div class="flex items-center gap-3 text-gray-700 font-medium"><i class="fas fa-check-circle text-primary"></i> Government & Tourism Authorities</div>
+                            <div class="flex items-center gap-3 text-gray-700 font-medium"><i class="fas fa-check-circle text-primary"></i> Special Delegates</div>
+                            <div class="flex items-center gap-3 text-gray-700 font-medium"><i class="fas fa-check-circle text-primary"></i> Travel Content Creators</div>
+                            <div class="flex items-center gap-3 text-gray-700 font-medium"><i class="fas fa-check-circle text-primary"></i> Hospitality Leaders</div>
+                            <div class="flex items-center gap-3 text-gray-700 font-medium"><i class="fas fa-check-circle text-primary"></i> Tourism Entrepreneurs</div>
+                        </div>
+                        
+                        <div class="flex flex-col sm:flex-row gap-4">
+                            <a href="#" onclick="alert('Downloading Brochure...')" class="inline-flex items-center justify-center gap-2 px-8 py-3.5 border-2 border-primary text-primary hover:bg-primary hover:text-white rounded-lg font-bold transition-colors">
+                                <i class="fas fa-file-pdf"></i> Download Brochure
+                            </a>
+                            <a href="#partners" class="inline-flex items-center justify-center gap-2 px-8 py-3.5 bg-gray-100 text-gray-700 hover:bg-gray-200 rounded-lg font-bold transition-colors">
+                                View Partners <i class="fas fa-arrow-down"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- WHO WILL ATTEND SECTION -->
+        <section id="attendees" class="py-20 bg-white border-t border-gray-200">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center mb-16">
+                <span class="text-primary font-bold tracking-wider uppercase text-sm mb-2 block">Global Network</span>
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Who Will Attend</h2>
+                <div class="w-16 h-1 bg-primary mx-auto mb-6"></div>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">Connect with a diverse ecosystem of tourism professionals and organizations.</p>
+            </div>
+            
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Buyers -->
+                    <div class="bg-gray-50 rounded-xl p-8 border border-gray-100 shadow-sm hover:shadow-md transition-shadow">
+                        <div class="w-14 h-14 bg-primary text-white rounded-lg flex items-center justify-center text-2xl mb-6">
+                            <i class="fas fa-user-tie"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-4">Buyers</h3>
+                        <p class="text-gray-600 mb-4 text-sm">International and domestic travel buyers including:</p>
+                        <ul class="space-y-2 text-sm text-gray-700">
+                            <li><i class="fas fa-check text-primary mr-2"></i>Tour operators</li>
+                            <li><i class="fas fa-check text-primary mr-2"></i>Destination management companies</li>
+                            <li><i class="fas fa-check text-primary mr-2"></i>Travel wholesalers</li>
+                            <li><i class="fas fa-check text-primary mr-2"></i>Travel agents</li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Sellers -->
+                    <div class="bg-gray-50 rounded-xl p-8 border border-gray-100 shadow-sm hover:shadow-md transition-shadow">
+                        <div class="w-14 h-14 bg-darkBlue text-white rounded-lg flex items-center justify-center text-2xl mb-6">
+                            <i class="fas fa-store"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-4">Sellers / Exhibitors</h3>
+                        <ul class="space-y-2 text-sm text-gray-700">
+                            <li><i class="fas fa-check text-darkBlue mr-2"></i>Hotels & Resorts</li>
+                            <li><i class="fas fa-check text-darkBlue mr-2"></i>Travel Agencies & Tour Operators</li>
+                            <li><i class="fas fa-check text-darkBlue mr-2"></i>Airlines & Tourism Boards</li>
+                            <li><i class="fas fa-check text-darkBlue mr-2"></i>Destination Marketing Organizations</li>
+                            <li><i class="fas fa-check text-darkBlue mr-2"></i>Adventure Tourism Companies</li>
+                        </ul>
+                    </div>
+
+                    <!-- Delegates -->
+                    <div class="bg-gray-50 rounded-xl p-8 border border-gray-100 shadow-sm hover:shadow-md transition-shadow">
+                        <div class="w-14 h-14 bg-primary text-white rounded-lg flex items-center justify-center text-2xl mb-6">
+                            <i class="fas fa-id-badge"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-4">Delegates</h3>
+                        <ul class="space-y-2 text-sm text-gray-700">
+                            <li><i class="fas fa-check text-primary mr-2"></i>Government Officials</li>
+                            <li><i class="fas fa-check text-primary mr-2"></i>Tourism Authorities</li>
+                            <li><i class="fas fa-check text-primary mr-2"></i>Industry Experts</li>
+                            <li><i class="fas fa-check text-primary mr-2"></i>Tourism Investors</li>
+                            <li><i class="fas fa-check text-primary mr-2"></i>Hospitality Leaders</li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Content Creators -->
+                    <div class="bg-gray-50 rounded-xl p-8 border border-gray-100 shadow-sm hover:shadow-md transition-shadow">
+                        <div class="w-14 h-14 bg-darkBlue text-white rounded-lg flex items-center justify-center text-2xl mb-6">
+                            <i class="fas fa-camera-retro"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-4">Content Creators</h3>
+                        <ul class="space-y-2 text-sm text-gray-700">
+                            <li><i class="fas fa-check text-darkBlue mr-2"></i>Travel Bloggers</li>
+                            <li><i class="fas fa-check text-darkBlue mr-2"></i>Influencers</li>
+                            <li><i class="fas fa-check text-darkBlue mr-2"></i>YouTubers</li>
+                            <li><i class="fas fa-check text-darkBlue mr-2"></i>Tourism Media</li>
+                        </ul>
+                    </div>
+
+                    <!-- Visitors -->
+                    <div class="bg-gray-50 rounded-xl p-8 border border-gray-100 shadow-sm hover:shadow-md transition-shadow md:col-span-2 lg:col-span-1">
+                        <div class="w-14 h-14 bg-primary text-white rounded-lg flex items-center justify-center text-2xl mb-6">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-4">Visitors</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed">
+                            Tourism students, professionals and public visitors interested in tourism opportunities and exploring what Koshi Province has to offer.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- BUYER VS SELLER INFO (Opportunities) -->
+        <section class="py-20 bg-white border-t border-gray-200">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Why Participate?</h2>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">Choose your path and discover unmatched business opportunities tailored to your organization's goals.</p>
+            </div>
+
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-2 gap-10">
+                <!-- Buyer Card -->
+                <div class="bg-lightBlue rounded-2xl p-8 border border-blue-100 relative overflow-hidden group">
+                    <div class="absolute top-0 right-0 p-8 opacity-5 text-primary text-9xl transform translate-x-1/4 -translate-y-1/4 group-hover:scale-110 transition-transform">
+                        <i class="fas fa-user-tag"></i>
+                    </div>
+                    <div class="relative z-10">
+                        <div class="w-16 h-16 bg-primary text-white rounded-xl flex items-center justify-center text-3xl mb-6 shadow-lg">
+                            <i class="fas fa-plane-arrival"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-gray-900 mb-4">For Buyers</h3>
+                        <p class="text-gray-600 mb-6">Are you a Tour Operator, Travel Agent, or Destination Management Company? Join as a Buyer to discover fresh, exotic itineraries.</p>
+                        <ul class="space-y-3 mb-8">
+                            <li class="flex items-center gap-3 text-gray-700"><i class="fas fa-check text-primary"></i> Pre-scheduled B2B meetings</li>
+                            <li class="flex items-center gap-3 text-gray-700"><i class="fas fa-check text-primary"></i> Access to exclusive FAM trips</li>
+                            <li class="flex items-center gap-3 text-gray-700"><i class="fas fa-check text-primary"></i> Discover new regional packages</li>
+                        </ul>
+                        <a href="#register-buyer" class="inline-block bg-primary text-white font-semibold py-3 px-6 rounded-lg hover:bg-darkBlue transition-colors w-full text-center">Register as Buyer</a>
+                    </div>
+                </div>
+
+                <!-- Seller Card -->
+                <div class="bg-gray-50 rounded-2xl p-8 border border-gray-200 relative overflow-hidden group">
+                    <div class="absolute top-0 right-0 p-8 opacity-5 text-darkBlue text-9xl transform translate-x-1/4 -translate-y-1/4 group-hover:scale-110 transition-transform">
+                        <i class="fas fa-store"></i>
+                    </div>
+                    <div class="relative z-10">
+                        <div class="w-16 h-16 bg-darkBlue text-white rounded-xl flex items-center justify-center text-3xl mb-6 shadow-lg">
+                            <i class="fas fa-hotel"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-gray-900 mb-4">For Sellers</h3>
+                        <p class="text-gray-600 mb-6">Hotels, Resorts, Airlines, and local tourism boards. Showcase your products to a highly targeted audience of buyers.</p>
+                        <ul class="space-y-3 mb-8">
+                            <li class="flex items-center gap-3 text-gray-700"><i class="fas fa-check text-darkBlue"></i> Premium exhibition booth space</li>
+                            <li class="flex items-center gap-3 text-gray-700"><i class="fas fa-check text-darkBlue"></i> Direct access to national/intl operators</li>
+                            <li class="flex items-center gap-3 text-gray-700"><i class="fas fa-check text-darkBlue"></i> Brand exposure in Koshi Tourism Year</li>
+                        </ul>
+                        <a href="#register-seller" class="inline-block bg-darkBlue text-white font-semibold py-3 px-6 rounded-lg hover:bg-primary transition-colors w-full text-center">Register as Seller</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- EVENT PROGRAM SECTION -->
+        <section id="program" class="py-24 bg-gray-50 border-t border-gray-200">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center mb-16">
+                <span class="text-primary font-bold tracking-wider uppercase text-sm mb-2 block">Itinerary</span>
+                <h2 class="text-3xl md:text-5xl font-bold text-gray-900 mb-6">Event Program</h2>
+                <div class="w-24 h-1 bg-primary mx-auto mb-6"></div>
+            </div>
+
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <!-- Day 1 -->
+                    <div class="bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-100">
+                        <div class="bg-primary p-6 text-center">
+                            <h3 class="text-2xl font-bold text-white">Day 1</h3>
+                            <p class="text-blue-100 font-medium">Opening & Networking</p>
+                        </div>
+                        <div class="p-8">
+                            <ul class="space-y-4">
+                                <li class="flex items-start gap-4"><div class="w-8 h-8 rounded-full bg-lightBlue text-primary flex items-center justify-center shrink-0 mt-1"><i class="fas fa-door-open text-sm"></i></div><div><p class="font-bold text-gray-900">Opening Ceremony</p></div></li>
+                                <li class="flex items-start gap-4"><div class="w-8 h-8 rounded-full bg-lightBlue text-primary flex items-center justify-center shrink-0 mt-1"><i class="fas fa-microphone text-sm"></i></div><div><p class="font-bold text-gray-900">Welcome Session</p></div></li>
+                                <li class="flex items-start gap-4"><div class="w-8 h-8 rounded-full bg-lightBlue text-primary flex items-center justify-center shrink-0 mt-1"><i class="fas fa-network-wired text-sm"></i></div><div><p class="font-bold text-gray-900">Tourism Industry Networking</p></div></li>
+                                <li class="flex items-start gap-4"><div class="w-8 h-8 rounded-full bg-lightBlue text-primary flex items-center justify-center shrink-0 mt-1"><i class="fas fa-handshake text-sm"></i></div><div><p class="font-bold text-gray-900">B2B Meetings</p></div></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Day 2 -->
+                    <div class="bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-100 transform md:-translate-y-4">
+                        <div class="bg-darkBlue p-6 text-center">
+                            <h3 class="text-2xl font-bold text-white">Day 2</h3>
+                            <p class="text-blue-100 font-medium">Business & Discussion</p>
+                        </div>
+                        <div class="p-8">
+                            <ul class="space-y-4">
+                                <li class="flex items-start gap-4"><div class="w-8 h-8 rounded-full bg-gray-100 text-darkBlue flex items-center justify-center shrink-0 mt-1"><i class="fas fa-briefcase text-sm"></i></div><div><p class="font-bold text-gray-900">B2B Buyer-Seller Meetings</p></div></li>
+                                <li class="flex items-start gap-4"><div class="w-8 h-8 rounded-full bg-gray-100 text-darkBlue flex items-center justify-center shrink-0 mt-1"><i class="fas fa-users-cog text-sm"></i></div><div><p class="font-bold text-gray-900">Panel Discussions</p></div></li>
+                                <li class="flex items-start gap-4"><div class="w-8 h-8 rounded-full bg-gray-100 text-darkBlue flex items-center justify-center shrink-0 mt-1"><i class="fas fa-chart-line text-sm"></i></div><div><p class="font-bold text-gray-900">Tourism Investment Talks</p></div></li>
+                                <li class="flex items-start gap-4"><div class="w-8 h-8 rounded-full bg-gray-100 text-darkBlue flex items-center justify-center shrink-0 mt-1"><i class="fas fa-chalkboard-teacher text-sm"></i></div><div><p class="font-bold text-gray-900">Industry Presentations</p></div></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Day 3 -->
+                    <div class="bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-100">
+                        <div class="bg-primary p-6 text-center">
+                            <h3 class="text-2xl font-bold text-white">Day 3</h3>
+                            <p class="text-blue-100 font-medium">Destination Visit</p>
+                        </div>
+                        <div class="p-8">
+                            <p class="text-sm text-gray-600 mb-4 font-medium border-b pb-2">Destination exploration around Itahari including:</p>
+                            <ul class="space-y-4 mb-6">
+                                <li class="flex items-start gap-4"><div class="w-8 h-8 rounded-full bg-lightBlue text-primary flex items-center justify-center shrink-0 mt-1"><i class="fas fa-hotel text-sm"></i></div><div><p class="font-bold text-gray-900">Ramada by Wyndham Itahari</p></div></li>
+                                <li class="flex items-start gap-4"><div class="w-8 h-8 rounded-full bg-lightBlue text-primary flex items-center justify-center shrink-0 mt-1"><i class="fas fa-shopping-cart text-sm"></i></div><div><p class="font-bold text-gray-900">Bhatbhateni Supermarket</p></div></li>
+                                <li class="flex items-start gap-4"><div class="w-8 h-8 rounded-full bg-lightBlue text-primary flex items-center justify-center shrink-0 mt-1"><i class="fas fa-water text-sm"></i></div><div><p class="font-bold text-gray-900">Taltalaiya Wetland</p></div></li>
+                            </ul>
+                            <p class="text-xs text-gray-500 italic bg-gray-50 p-3 rounded-lg border border-gray-100">Additional tourism destinations and hospitality venues will also be visited.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PANEL DISCUSSIONS & DESTINATION SHOWCASE -->
+        <section class="py-20 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
+                    
+                    <!-- Panel Discussions -->
+                    <div>
+                        <div class="flex items-center gap-4 mb-6">
+                            <div class="w-12 h-12 bg-primary text-white rounded-lg flex items-center justify-center text-xl shadow-lg"><i class="fas fa-comments"></i></div>
+                            <h2 class="text-3xl font-bold text-gray-900">Panel Discussions</h2>
+                        </div>
+                        <p class="text-gray-600 mb-6">The mart will host expert discussions. Industry experts, government officials and tourism leaders will participate focusing on:</p>
+                        <div class="bg-gray-50 rounded-xl p-6 border border-gray-100">
+                            <ul class="space-y-4">
+                                <li class="flex items-center gap-3"><i class="fas fa-angle-right text-primary"></i> <span class="font-semibold text-gray-800">Tourism Growth in Eastern Nepal</span></li>
+                                <li class="flex items-center gap-3"><i class="fas fa-angle-right text-primary"></i> <span class="font-semibold text-gray-800">Sustainable Tourism Development</span></li>
+                                <li class="flex items-center gap-3"><i class="fas fa-angle-right text-primary"></i> <span class="font-semibold text-gray-800">Digital Tourism Marketing</span></li>
+                                <li class="flex items-center gap-3"><i class="fas fa-angle-right text-primary"></i> <span class="font-semibold text-gray-800">International Tourism Partnerships</span></li>
+                                <li class="flex items-center gap-3"><i class="fas fa-angle-right text-primary"></i> <span class="font-semibold text-gray-800">Investment Opportunities in Hospitality</span></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Destination Showcase -->
+                    <div>
+                        <div class="flex items-center gap-4 mb-6">
+                            <div class="w-12 h-12 bg-darkBlue text-white rounded-lg flex items-center justify-center text-xl shadow-lg"><i class="fas fa-map-marked-alt"></i></div>
+                            <h2 class="text-3xl font-bold text-gray-900">Destinations Showcase</h2>
+                        </div>
+                        <p class="text-gray-600 mb-6">Tourism destinations from Koshi Province and surrounding regions will be showcased including:</p>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div class="bg-lightBlue border border-blue-100 rounded-xl p-4 flex items-center gap-3">
+                                <i class="fas fa-tree text-primary text-xl"></i>
+                                <span class="font-semibold text-gray-900">Natural attractions</span>
+                            </div>
+                            <div class="bg-lightBlue border border-blue-100 rounded-xl p-4 flex items-center gap-3">
+                                <i class="fas fa-vihara text-primary text-xl"></i>
+                                <span class="font-semibold text-gray-900">Cultural heritage sites</span>
+                            </div>
+                            <div class="bg-lightBlue border border-blue-100 rounded-xl p-4 flex items-center gap-3">
+                                <i class="fas fa-hiking text-primary text-xl"></i>
+                                <span class="font-semibold text-gray-900">Adventure tourism</span>
+                            </div>
+                            <div class="bg-lightBlue border border-blue-100 rounded-xl p-4 flex items-center gap-3">
+                                <i class="fas fa-om text-primary text-xl"></i>
+                                <span class="font-semibold text-gray-900">Religious tourism</span>
+                            </div>
+                            <div class="bg-lightBlue border border-blue-100 rounded-xl p-4 flex items-center gap-3 sm:col-span-2">
+                                <i class="fas fa-bed text-primary text-xl"></i>
+                                <span class="font-semibold text-gray-900">Hospitality destinations</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PARTNERS SECTION (Box Design) -->
+        <section id="partners" class="py-24 bg-darkerBlue">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center mb-16">
+                <span class="text-blue-300 font-bold tracking-wider uppercase text-sm mb-2 block">Collaborative Effort</span>
+                <h2 class="text-3xl md:text-5xl font-bold text-white mb-6">Sponsors & Supporters</h2>
+                <div class="w-24 h-1 bg-primary mx-auto mb-6"></div>
+                <p class="text-lg text-blue-100 max-w-3xl mx-auto mb-6">The event is supported by tourism authorities, government bodies, and private sector partners.</p>
+                
+                <div class="flex flex-wrap justify-center gap-3 mb-10 text-sm font-semibold text-white">
+                    <span class="bg-white/10 px-4 py-2 rounded-full border border-white/20">Title Sponsor</span>
+                    <span class="bg-white/10 px-4 py-2 rounded-full border border-white/20">Co-Sponsors</span>
+                    <span class="bg-white/10 px-4 py-2 rounded-full border border-white/20">Destination Partners</span>
+                    <span class="bg-white/10 px-4 py-2 rounded-full border border-white/20">Hospitality Partners</span>
+                    <span class="bg-white/10 px-4 py-2 rounded-full border border-white/20">Travel Partners</span>
+                    <span class="bg-white/10 px-4 py-2 rounded-full border border-white/20">Media Partners</span>
+                </div>
+            </div>
+
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                    
+                    <!-- Partner Box 1 -->
+                    <div class="box-partner bg-white rounded-xl p-8 flex flex-col items-center justify-center text-center h-64 border-b-4 border-transparent">
+                        <div class="w-20 h-20 rounded-full bg-lightBlue text-primary flex items-center justify-center text-4xl mb-4">
+                            <i class="fas fa-mountain"></i>
+                        </div>
+                        <h3 class="font-bold text-gray-900 text-lg">Nepal Tourism Board</h3>
+                        <p class="text-sm text-gray-500 font-medium mt-1">NTB</p>
+                    </div>
+
+                    <!-- Partner Box 2 -->
+                    <div class="box-partner bg-white rounded-xl p-8 flex flex-col items-center justify-center text-center h-64 border-b-4 border-transparent">
+                        <div class="w-20 h-20 rounded-full bg-primary text-white flex items-center justify-center text-4xl mb-4 shadow-md">
+                            <i class="fas fa-calendar-check"></i>
+                        </div>
+                        <h3 class="font-bold text-gray-900 text-lg leading-tight">Koshi Province Tourism Year 2082</h3>
+                    </div>
+
+                    <!-- Partner Box 3 -->
+                    <div class="box-partner bg-white rounded-xl p-8 flex flex-col items-center justify-center text-center h-64 border-b-4 border-transparent">
+                        <div class="w-20 h-20 rounded-full bg-lightBlue text-primary flex items-center justify-center text-4xl mb-4">
+                            <i class="fas fa-city"></i>
+                        </div>
+                        <h3 class="font-bold text-gray-900 text-lg leading-tight">Itahari Sub-Metropolitan City</h3>
+                    </div>
+
+                    <!-- Partner Box 4 -->
+                    <div class="box-partner bg-white rounded-xl p-8 flex flex-col items-center justify-center text-center h-64 border-b-4 border-transparent">
+                        <div class="w-20 h-20 rounded-full bg-lightBlue text-primary flex items-center justify-center text-4xl mb-4">
+                            <i class="fas fa-plane-departure"></i>
+                        </div>
+                        <h3 class="font-bold text-gray-900 text-lg">NATTA Koshi</h3>
+                        <p class="text-xs text-gray-500 mt-2">Nepal Association of Tour & Travel Agents</p>
+                    </div>
+
+                    <!-- Partner Box 5 -->
+                    <div class="box-partner bg-white rounded-xl p-8 flex flex-col items-center justify-center text-center h-64 border-b-4 border-transparent">
+                        <div class="w-20 h-20 rounded-full bg-lightBlue text-primary flex items-center justify-center text-4xl mb-4">
+                            <i class="fas fa-concierge-bell"></i>
+                        </div>
+                        <h3 class="font-bold text-gray-900 text-lg">Hotel Association Nepal</h3>
+                        <p class="text-sm text-gray-500 font-medium mt-1">HAN</p>
+                    </div>
+
+                    <!-- Partner Box 6 -->
+                    <div class="box-partner bg-white rounded-xl p-8 flex flex-col items-center justify-center text-center h-64 border-b-4 border-transparent">
+                        <div class="w-20 h-20 rounded-full bg-lightBlue text-primary flex items-center justify-center text-4xl mb-4">
+                            <i class="fas fa-map-marked-alt"></i>
+                        </div>
+                        <h3 class="font-bold text-gray-900 text-lg leading-tight">Provincial Tourism Authority</h3>
+                        <p class="text-sm text-gray-500 mt-1">Koshi Province</p>
+                    </div>
+
+                    <!-- Partner Box 7 -->
+                    <div class="box-partner bg-white rounded-xl p-8 flex flex-col items-center justify-center text-center h-64 border-b-4 border-transparent">
+                        <div class="w-20 h-20 rounded-full bg-lightBlue text-primary flex items-center justify-center text-4xl mb-4">
+                            <i class="fas fa-users-cog"></i>
+                        </div>
+                        <h3 class="font-bold text-gray-900 text-lg">H.T.T.A.S Sunsari</h3>
+                        <p class="text-xs text-gray-500 mt-2">Hotel & Tourism Entrepreneurs Association</p>
+                    </div>
+
+                    <!-- Partner Box 8 -->
+                    <div class="box-partner bg-white rounded-xl p-8 flex flex-col items-center justify-center text-center h-64 border-b-4 border-transparent">
+                        <div class="w-20 h-20 rounded-full bg-lightBlue text-primary flex items-center justify-center text-4xl mb-4">
+                            <i class="fas fa-car-side"></i>
+                        </div>
+                        <h3 class="font-bold text-gray-900 text-lg">BATA</h3>
+                        <p class="text-sm text-gray-500 mt-1">Biratnagar Automobile Traders Association</p>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- REGISTRATION CTA SECTION (Redesigned Modern 3-Column) -->
+        <section id="register-section" class="py-24 bg-gray-50 relative overflow-hidden">
+            <!-- Decorative background elements -->
+            <div class="absolute top-0 right-0 w-[600px] h-[600px] bg-primary opacity-5 rounded-full blur-3xl transform translate-x-1/3 -translate-y-1/3"></div>
+            <div class="absolute bottom-0 left-0 w-[500px] h-[500px] bg-darkBlue opacity-5 rounded-full blur-3xl transform -translate-x-1/3 translate-y-1/3"></div>
+
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center mb-16">
+                <span class="text-primary font-bold tracking-wider uppercase text-sm mb-2 block">Join The Event</span>
+                <h2 class="text-3xl md:text-5xl font-bold text-gray-900 mb-6">Select Your Registration Type</h2>
+                <div class="w-24 h-1 bg-primary mx-auto mb-6"></div>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">Secure your spot at the 6th Eastern Travel Mart. Choose the path that aligns with your goals.</p>
+            </div>
+
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    
+                    <!-- Exhibitor Registration -->
+                    <div class="group bg-white rounded-3xl p-1 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 relative">
+                        <div class="absolute inset-0 bg-gradient-to-b from-darkBlue to-primary rounded-3xl opacity-0 group-hover:opacity-10 transition-opacity"></div>
+                        <div class="bg-white rounded-[23px] p-8 h-full flex flex-col border border-gray-100">
+                            <div class="w-20 h-20 bg-gray-50 rounded-2xl flex items-center justify-center text-darkBlue text-3xl mb-8 group-hover:scale-110 transition-transform">
+                                <i class="fas fa-store"></i>
+                            </div>
+                            <h3 class="text-2xl font-bold text-gray-900 mb-4">Exhibitor</h3>
+                            <p class="text-gray-600 flex-grow mb-8">Showcase your Hotels, Resorts, Destinations, and Airlines to national & international buyers. Secure premium booth space.</p>
+                            <button onclick="alert('Opening Flowvent Exhibitor Portal...')" class="w-full bg-darkBlue hover:bg-primary text-white py-4 rounded-xl font-bold text-lg transition-colors shadow-md flex justify-center items-center gap-2">
+                                Apply as Exhibitor <i class="fas fa-arrow-right"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Buyer Registration -->
+                    <div class="group bg-white rounded-3xl p-1 shadow-xl hover:shadow-2xl transition-all duration-300 transform md:-translate-y-4 hover:-translate-y-6 relative z-10">
+                        <div class="absolute inset-0 bg-gradient-to-b from-primary to-blue-400 rounded-3xl opacity-100 group-hover:opacity-100 transition-opacity"></div>
+                        <div class="bg-white rounded-[23px] p-8 h-full flex flex-col border border-gray-100 relative shadow-[0_0_40px_rgba(3,129,220,0.15)] group-hover:shadow-[0_0_40px_rgba(3,129,220,0.3)]">
+                            <div class="absolute top-0 right-0 bg-primary text-white text-xs font-bold px-3 py-1 rounded-bl-xl rounded-tr-[22px] uppercase tracking-wider">Most Popular</div>
+                            <div class="w-20 h-20 bg-lightBlue rounded-2xl flex items-center justify-center text-primary text-3xl mb-8 group-hover:scale-110 transition-transform">
+                                <i class="fas fa-user-tag"></i>
+                            </div>
+                            <h3 class="text-2xl font-bold text-gray-900 mb-4">Buyer</h3>
+                            <p class="text-gray-600 flex-grow mb-8">For Travel agents and Tour Operators seeking scheduled B2B meetings and access to exclusive FAM trips across Koshi.</p>
+                            <button onclick="alert('Opening Flowvent Buyer Portal...')" class="w-full bg-primary hover:bg-darkBlue text-white py-4 rounded-xl font-bold text-lg transition-colors shadow-lg flex justify-center items-center gap-2">
+                                Register as Buyer <i class="fas fa-arrow-right"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Visitor Registration -->
+                    <div class="group bg-white rounded-3xl p-1 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 relative">
+                        <div class="absolute inset-0 bg-gradient-to-b from-gray-400 to-gray-200 rounded-3xl opacity-0 group-hover:opacity-10 transition-opacity"></div>
+                        <div class="bg-white rounded-[23px] p-8 h-full flex flex-col border border-gray-100">
+                            <div class="w-20 h-20 bg-gray-50 rounded-2xl flex items-center justify-center text-gray-600 text-3xl mb-8 group-hover:scale-110 transition-transform">
+                                <i class="fas fa-walking"></i>
+                            </div>
+                            <h3 class="text-2xl font-bold text-gray-900 mb-4">Visitor</h3>
+                            <p class="text-gray-600 flex-grow mb-8">For tourism students, professionals, and public visitors interested in exploring the exhibition and tourism opportunities.</p>
+                            <button onclick="alert('Opening Flowvent Visitor Portal...')" class="w-full bg-gray-100 text-gray-800 hover:bg-gray-200 py-4 rounded-xl font-bold text-lg transition-colors border border-gray-200 flex justify-center items-center gap-2">
+                                Get Visitor Pass <i class="fas fa-arrow-right"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="mt-12 text-center">
+                    <p class="text-sm text-gray-500 font-medium">Secure Registration Management provided by <a href="https://flowvent.io" class="text-primary hover:text-darkBlue transition-colors font-bold">Flowvent.io</a></p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-darkerBlue text-white border-t-4 border-primary mt-auto">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <!-- Brand Info -->
+                <div class="md:col-span-2">
+                    <img src="images/logo.svg" alt="ETM Logo" class="h-14 w-auto mb-6 brightness-0 invert" onerror="this.onerror=null; this.src='https://placehold.co/150x50/0381DC/FFF?text=ETM+Logo';">
+                    <p class="text-blue-100 mb-6 max-w-sm leading-relaxed text-sm">
+                        Promoting the extraordinary tourism potential of Eastern Nepal and Koshi Province. Join us in shaping the future of regional tourism.
+                    </p>
+                    <div class="flex gap-4">
+                        <a href="#" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-primary transition-colors"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-primary transition-colors"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-primary transition-colors"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                
+                <!-- Quick Links -->
+                <div>
+                    <h3 class="text-lg font-bold mb-6 text-white border-b-2 border-primary inline-block pb-1">Quick Links</h3>
+                    <ul class="space-y-3">
+                        <li><a href="#home" class="text-blue-200 hover:text-white transition-colors text-sm flex items-center gap-2"><i class="fas fa-chevron-right text-xs text-primary"></i> Home</a></li>
+                        <li><a href="#about" class="text-blue-200 hover:text-white transition-colors text-sm flex items-center gap-2"><i class="fas fa-chevron-right text-xs text-primary"></i> About Us</a></li>
+                        <li><a href="#partners" class="text-blue-200 hover:text-white transition-colors text-sm flex items-center gap-2"><i class="fas fa-chevron-right text-xs text-primary"></i> Partners</a></li>
+                        <li><a href="#program" class="text-blue-200 hover:text-white transition-colors text-sm flex items-center gap-2"><i class="fas fa-chevron-right text-xs text-primary"></i> Program</a></li>
+                        <li><a href="#register-section" class="text-blue-200 hover:text-white transition-colors text-sm flex items-center gap-2"><i class="fas fa-chevron-right text-xs text-primary"></i> Register</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact Info -->
+                <div>
+                    <h3 class="text-lg font-bold mb-6 text-white border-b-2 border-primary inline-block pb-1">Contact Us</h3>
+                    <ul class="space-y-4 text-sm text-blue-200">
+                        <li class="flex items-start gap-3">
+                            <i class="fas fa-map-marker-alt mt-1 text-primary"></i> 
+                            <span>Soaltee Westend Itahari,<br>Koshi Province, Nepal</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="fas fa-envelope text-primary"></i> 
+                            <a href="mailto:easterntravelmart@gmail.com" class="hover:text-white break-all text-[13px]">easterntravelmart@gmail.com</a>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="fas fa-phone-alt text-primary"></i> 
+                            <a href="tel:+9779700072197" class="hover:text-white">+977 9700072197</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <hr class="border-blue-800/50 my-10">
+            
+            <!-- Footer Bottom -->
+            <div class="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-blue-200">
+                <p>&copy; <script>document.write(new Date().getFullYear())</script> All Right Reserved to - ETM</p>
+                <div class="text-center md:text-right">
+                    <p>Powered By <a href="https://kafals.com.np" target="_blank" rel="noopener noreferrer" class="text-white font-semibold hover:text-primary transition-colors mx-1">Kafals</a> <span class="text-blue-800 mx-2">|</span> Registration Management By <a href="https://flowvent.io" target="_blank" rel="noopener noreferrer" class="text-white font-semibold hover:text-primary transition-colors mx-1">Flowvent</a></p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Mobile Menu Toggle
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        }
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('navbar');
+            if (window.scrollY > 20) {
+                nav.classList.add('shadow-lg');
+                nav.classList.remove('shadow-md');
+            } else {
+                nav.classList.add('shadow-md');
+                nav.classList.remove('shadow-lg');
+            }
+        });
+
+        // Intersection Observer for highlighting active nav links
+        const sections = document.querySelectorAll("section[id]");
+        const navLinks = document.querySelectorAll(".nav-link");
+
+        window.addEventListener("scroll", () => {
+            let current = "";
+            sections.forEach((section) => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (pageYOffset >= sectionTop - 150) {
+                    current = section.getAttribute("id");
+                }
+            });
+
+            navLinks.forEach((link) => {
+                link.classList.remove("active");
+                if (link.getAttribute("href").includes(current)) {
+                    link.classList.add("active");
+                }
+            });
+        });
+
+        // Countdown Timer Logic
+        const eventDate = new Date("March 28, 2026 09:00:00").getTime();
+
+        const countdown = setInterval(() => {
+            const now = new Date().getTime();
+            const distance = eventDate - now;
+
+            if (distance < 0) {
+                clearInterval(countdown);
+                document.getElementById("days").innerText = "00";
+                document.getElementById("hours").innerText = "00";
+                document.getElementById("mins").innerText = "00";
+                document.getElementById("secs").innerText = "00";
+                return;
+            }
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            // Add leading zeros
+            document.getElementById("days").innerText = days.toString().padStart(2, '0');
+            document.getElementById("hours").innerText = hours.toString().padStart(2, '0');
+            document.getElementById("mins").innerText = minutes.toString().padStart(2, '0');
+            document.getElementById("secs").innerText = seconds.toString().padStart(2, '0');
+
+        }, 1000);
+    </script>
+</body>
+</html>
